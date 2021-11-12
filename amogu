@@ -311,6 +311,10 @@ function Library:Create(hubname, gamename)
 			   DropDown.Text = name..":"..Options.Text
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
+			    for i,v in pairs(options) do 
+			    	OptionsContainer[v].Visible = false
+				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
+			    end
 			end)
 		end
 		
@@ -328,8 +332,8 @@ function Library:Create(hubname, gamename)
 		   elseif isDropped == true then
 		   	isDropped = false
 			    for i,v in pairs(options) do 
-			    	OptionsContainer[v].Visible = false
 				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
+				OptionsContainer[v].Visible = false
 			    end
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
