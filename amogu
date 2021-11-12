@@ -227,6 +227,91 @@ function Library:Create(hubname, gamename)
 		end)
 	end
 	
+	function PageItems:DropDown(name, options, callback)
+		local OptionsContainer = Instance.new("Frame")
+		local TextLabel_2 = Instance.new("TextLabel")
+		local UICorner_2 = Instance.new("UICorner")
+		local DropDown = Instance.new("TextButton")
+		
+		local callback = callback or function() end
+		local options = options or {}
+		
+		DropDown.Name = "DropDown"
+		DropDown.Parent = TabContentContainer
+		DropDown.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+		DropDown.Size = UDim2.new(0, 517, 0, 0)
+		DropDown.AutoButtonColor = false
+		DropDown.Font = Enum.Font.GothamBold
+		DropDown.Text = name
+		DropDown.TextColor3 = Color3.fromRGB(193, 193, 193)
+		DropDown.TextSize = 37.000
+		DropDown.TextWrapped = true
+
+		UICorner_2.CornerRadius = UDim.new(0, 5)
+		UICorner_2.Parent = DropDown
+
+		TextLabel_2.Parent = DropDown
+		TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_2.BackgroundTransparency = 1.000
+		TextLabel_2.Position = UDim2.new(0.899419725, 0, 0.0363636352, 0)
+		TextLabel_2.Size = UDim2.new(0, 44, 0, 50)
+		TextLabel_2.Font = Enum.Font.ArialBold
+		TextLabel_2.Text = ">"
+		TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_2.TextScaled = true
+		TextLabel_2.TextSize = 14.000
+		TextLabel_2.TextWrapped = true
+
+		OptionsContainer.Name = "OptionsContainer"
+		OptionsContainer.Parent = DropDown
+		OptionsContainer.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+		OptionsContainer.BorderSizePixel = 0
+		OptionsContainer.Position = UDim2.new(0, 0, 0.945454538, 0)
+		OptionsContainer.Size = UDim2.new(0, 517, 0, 0)
+
+		UIListLayout_3.Parent = OptionsContainer
+		UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+		
+		for i,v in pairs(options) do
+			local Options = Instance.new("TextButton")
+			local UICorner = Instance.new("UICorner")
+
+			--Properties:
+
+			Options.Name = "Options"
+			Options.Parent = OptionsContainer
+			Options.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Options.BackgroundTransparency = 1.000
+			Options.Position = UDim2.new(0, 0, 0.644067824, 0)
+			Options.Size = UDim2.new(0, 517, 0, 50)
+			Options.Font = Enum.Font.SourceSansBold
+			Options.Text = v
+			Options.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Options.TextScaled = true
+			Options.TextSize = 14.000
+			Options.TextWrapped = true
+			Options.AutoButtonColor = false
+				
+			UICorner.Parent = Options
+			
+			Options.MouseButton1Down:Connect(function()
+			   callback(Options.Text)
+			end)
+		end
+		
+		DropDown.MouseButton1Down:Connect(function()
+		   if isDropped == true then
+		   	isDropped = false
+			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 0)}):Play()
+			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 90}):Play()
+		   elseif isDropped == false then
+		   	isDropped = true
+			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 413)}):Play()
+			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 0}):Play()
+		   end
+		end)
+	end
+	
 	    return PageItems
  
 	end
