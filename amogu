@@ -300,7 +300,8 @@ function Library:Create(hubname, gamename)
 			Options.TextSize = 14.000
 			Options.TextWrapped = true
 			Options.AutoButtonColor = false
-			Options.Visible = false
+			Options.Visible = true
+			Options.TextTransparency = 1
 				
 			UICorner.Parent = Options
 			
