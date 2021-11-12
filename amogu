@@ -7,6 +7,7 @@ local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse() 
  
 function Library:Create(hubname, gamename)
+     print("Created")
 local LibGuithing = Instance.new("ScreenGui")
 local MainLib = Instance.new("Frame")
 local Corner = Instance.new("UICorner")
