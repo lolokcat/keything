@@ -163,11 +163,11 @@ function Library:Create(hubname, gamename)
         ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
         ImageLabel.Size = UDim2.new(0, 55, 0, 52)
  
-		local PageItems = {} 
+	local PageItems = {} 
  
-		function PageItems:Button(buttonname, callback)
+	function PageItems:Button(buttonname, callback)
  
-			local callback = callback or function() end
+	    local callback = callback or function() end
 			
             local Button = Instance.new("TextButton")
  	    local UICorner = Instance.new("UICorner")
@@ -189,9 +189,45 @@ function Library:Create(hubname, gamename)
                 callback()
             end)
  
-		end
- 
-		return PageItems
+	end
+	
+	function PageItems:InfoLabel(info)
+		local Label = Instance.new("TextLabel")
+		Label.Name = "Label"
+		Label.Parent = TabContentContainer
+		Label.BackgroundColor3 = Color3.new(0.34902, 0.34902, 0.34902)
+		Label.Position = UDim2.new(0, 0, 0.224299058, 0)
+		Label.Size = UDim2.new(0, 517, 0, 50)
+		Label.Font = Enum.Font.GothamBold 
+		Label.Text = info or "info"
+		Label.TextColor3 = Color3.new(0.756863, 0.756863, 0.756863)
+		Label.TextSize = 37
+		Label.TextWrapped = true
+ 	end
+	
+	function PageItems:TextField(text, callback)
+		local TextField = Instance.new("TextBox")
+		local callback = callback or function() end
+		
+		TextField.Name = "TextField"
+		TextField.Parent = TabContentContainer
+		TextField.BackgroundColor3 = Color3.new(0.34902, 0.34902, 0.34902)
+		TextField.Position = UDim2.new(0, 0, 0.32710281, 0)
+		TextField.Size = UDim2.new(0, 517, 0, 50)
+		TextField.Font = Enum.Font.SourceSansBold
+		TextField.PlaceholderText = text
+		TextField.Text = ""
+		TextField.TextColor3 = Color3.new(0, 0, 0)
+		TextField.TextScaled = true
+		TextField.TextSize = 14
+		TextField.TextWrapped = true
+		
+		TextField.Text.Changed:Connect(function(newval)
+			callback(newval)
+		end)
+	end
+	
+	    return PageItems
  
 	end
  
