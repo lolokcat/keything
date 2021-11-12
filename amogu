@@ -233,8 +233,6 @@ function Library:Create(hubname, gamename)
 	    game:GetService("TweenService"):Create(asset, info, thing):Play()
 	end
 	
-	local isDropped = false
-	
 	function PageItems:DropDown(name, options, callback)
 		local DropDown = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner")
@@ -311,6 +309,8 @@ function Library:Create(hubname, gamename)
 			end)
 		end
 		
+		local isDropped = false
+		
 		DropDown.MouseButton1Down:Connect(function()
 		   if isDropped == false then
 		   	isDropped = true
@@ -321,6 +321,7 @@ function Library:Create(hubname, gamename)
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
 		   elseif isDropped == true then
 		   	isDropped = false
+			print("false")
 			    for i,v in pairs(OptionsContainer:GetChildren()) do 
 			        v.Visible = false
 			    end
