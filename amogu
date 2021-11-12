@@ -1,0 +1,151 @@
+local windows = {}
+ 
+local Library = {}
+ 
+local TS = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+local mouse = game.Players.LocalPlayer:GetMouse() 
+ 
+function Library:Create(hubname, gamename)
+    local LibGui = Instance.new("ScreenGui")
+    local MainLib = Instance.new("Frame")
+    local TabContainer = Instance.new("Frame")
+    local Tab1 = Instance.new("TextButton")
+    local TextLabel = Instance.new("TextLabel")
+    local ImageLabel = Instance.new("ImageLabel")
+    local UIListLayout = Instance.new("UIListLayout")
+    local HubName = Instance.new("TextLabel")
+    local GameName = Instance.new("TextLabel")
+    local Seperator = Instance.new("Frame")
+    local TabContentContainer = Instance.new("ScrollingFrame")
+    local UIListLayout_2 = Instance.new("UIListLayout")
+ 
+    LibGui.Name = "LibGui"
+    LibGui.Parent = game.CoreGui
+    LibGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+    MainLib.Name = "MainLib"
+    MainLib.Parent = LibGui
+    MainLib.BackgroundColor3 = Color3.new(0.282353, 0.282353, 0.282353)
+    MainLib.Position = UDim2.new(0.225217387, 0, 0.310160428, 0)
+    MainLib.Size = UDim2.new(0, 754, 0, 541)
+ 
+    TabContainer.Name = "TabContainer"
+    TabContainer.Parent = MainLib
+    TabContainer.BackgroundColor3 = Color3.new(0.454902, 0.454902, 0.454902)
+    TabContainer.BackgroundTransparency = 1
+    TabContainer.BorderSizePixel = 0
+    TabContainer.Position = UDim2.new(0, 0, 0.14972274, 0)
+    TabContainer.Size = UDim2.new(0, 205, 0, 460)
+ 
+    Tab1.Name = "Tab1"
+    Tab1.Parent = TabContainer
+    Tab1.BackgroundColor3 = Color3.new(0.313726, 0.313726, 0.313726)
+    Tab1.BorderSizePixel = 0
+    Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
+    Tab1.Size = UDim2.new(0, 205, 0, 50)
+    Tab1.AutoButtonColor = false
+    Tab1.Font = Enum.Font.GothamBold
+    Tab1.Text = ""
+    Tab1.TextColor3 = Color3.new(0.807843, 0.807843, 0.807843)
+    Tab1.TextSize = 25
+    Tab1.TextWrapped = true
+ 
+    TextLabel.Parent = Tab1
+    TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
+    TextLabel.Size = UDim2.new(0, 123, 0, 50)
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = "amogus"
+    TextLabel.TextColor3 = Color3.new(1, 1, 1)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14
+    TextLabel.TextWrapped = true
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+ 
+    ImageLabel.Parent = Tab1
+    ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+    ImageLabel.BackgroundTransparency = 1
+    ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
+    ImageLabel.Size = UDim2.new(0, 55, 0, 52)
+ 
+    UIListLayout.Parent = TabContainer
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+ 
+    HubName.Name = "HubName"
+    HubName.Parent = MainLib
+    HubName.BackgroundColor3 = Color3.new(1, 1, 1)
+    HubName.BackgroundTransparency = 1
+    HubName.Position = UDim2.new(0.00795756001, 0, -0.000217938446, 0)
+    HubName.Size = UDim2.new(0, 193, 0, 50)
+    HubName.Font = Enum.Font.SourceSansBold
+    HubName.Text = hubname
+    HubName.TextColor3 = Color3.new(0.686275, 0.686275, 0.686275)
+    HubName.TextScaled = true
+    HubName.TextSize = 14
+    HubName.TextWrapped = true
+ 
+    GameName.Name = "GameName"
+    GameName.Parent = MainLib
+    GameName.BackgroundColor3 = Color3.new(1, 1, 1)
+    GameName.BackgroundTransparency = 1
+    GameName.Position = UDim2.new(0, 0, 0.079264462, 0)
+    GameName.Size = UDim2.new(0, 205, 0, 29)
+    GameName.Font = Enum.Font.SourceSansBold
+    GameName.Text = gamename
+    GameName.TextColor3 = Color3.new(0.529412, 0.529412, 0.529412)
+    GameName.TextScaled = true
+    GameName.TextSize = 14
+    GameName.TextWrapped = true
+ 
+    Seperator.Name = "Seperator"
+    Seperator.Parent = MainLib
+    Seperator.BackgroundColor3 = Color3.new(0.337255, 0.337255, 0.337255)
+    Seperator.BorderSizePixel = 0
+    Seperator.Position = UDim2.new(0.271883279, 0, 0, 0)
+    Seperator.Size = UDim2.new(0, 7, 0, 541)
+ 
+    TabContentContainer.Name = "TabContentContainer"
+    TabContentContainer.Parent = MainLib
+    TabContentContainer.Active = true
+    TabContentContainer.BackgroundColor3 = Color3.new(1, 1, 1)
+    TabContentContainer.BackgroundTransparency = 1
+    TabContentContainer.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+    TabContentContainer.BorderSizePixel = 0
+    TabContentContainer.Position = UDim2.new(0.290450931, 0, 0.0110905729, 0)
+    TabContentContainer.Size = UDim2.new(0, 535, 0, 535)
+    TabContentContainer.BottomImage = ""
+    TabContentContainer.TopImage = ""
+ 
+    UIListLayout_2.Parent = TabContentContainer
+    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_2.Padding = UDim.new(0, 5)
+ 
+    local Win = {}
+ 
+    function Win:Button(name, callback)
+        local callback = callback or function() end
+        local Button = Instance.new("TextButton")
+ 
+        Button.Name = "Button"
+        Button.Parent = TabContentContainer
+        Button.BackgroundColor3 = Color3.new(0.34902, 0.34902, 0.34902)
+        Button.Size = UDim2.new(0, 517, 0, 55)
+        Button.AutoButtonColor = false
+        Button.Font = Enum.Font.GothamBold
+        Button.Text = name
+        Button.TextColor3 = Color3.new(0.756863, 0.756863, 0.756863)
+        Button.TextSize = 37
+        Button.TextWrapped = true
+ 
+        Button:MouseButton1Down:Connect(function()
+            pcall(callback)
+        end)
+    end
+ 
+    return Win
+ 
+end
+ 
+return Library
