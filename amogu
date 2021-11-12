@@ -303,6 +303,8 @@ function Library:Create(hubname, gamename)
 			end)
 		end
 		
+		local isDropped = false
+		
 		DropDown.MouseButton1Down:Connect(function()
 		   if isDropped == true then
 		   	isDropped = false
