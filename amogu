@@ -228,15 +228,45 @@ function Library:Create(hubname, gamename)
 	end
 	
 	function PageItems:DropDown(name, options, callback)
+		local DropDown = Instance.new("TextButton")
+		local UICorner = Instance.new("UICorner")
+		local TextLabel = Instance.new("TextLabel")
 		local OptionsContainer = Instance.new("Frame")
 		local Options = Instance.new("TextButton")
-		local UICorner = Instance.new("UICorner")
+		local UICorner_2 = Instance.new("UICorner")
 		local UIListLayout = Instance.new("UIListLayout")
 
 		--Properties:
 
+		DropDown.Name = "DropDown"
+		DropDown.Parent = game.StarterGui.LibGuithing.MainLib.TabContentContainer
+		DropDown.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+		DropDown.Position = UDim2.new(0, 0, -0.0341959335, 0)
+		DropDown.Size = UDim2.new(0, 517, 0, 55)
+		DropDown.AutoButtonColor = false
+		DropDown.Font = Enum.Font.GothamBold
+		DropDown.Text = "Dropdown"
+		DropDown.TextColor3 = Color3.fromRGB(193, 193, 193)
+		DropDown.TextSize = 37.000
+		DropDown.TextWrapped = true
+
+		UICorner.CornerRadius = UDim.new(0, 5)
+		UICorner.Parent = DropDown
+
+		TextLabel.Parent = DropDown
+		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.BackgroundTransparency = 1.000
+		TextLabel.Position = UDim2.new(0.899419725, 0, 0.0363636352, 0)
+		TextLabel.Size = UDim2.new(0, 44, 0, 50)
+		TextLabel.Font = Enum.Font.ArialBold
+		TextLabel.Text = ">"
+		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14.000
+		TextLabel.TextWrapped = true
+
 		OptionsContainer.Name = "OptionsContainer"
-		OptionsContainer.Parent = game.StarterGui.LibGuithing.MainLib.TabContentContainer.DropDown
+		OptionsContainer.Parent = DropDown
 		OptionsContainer.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
 		OptionsContainer.BorderSizePixel = 0
 		OptionsContainer.Position = UDim2.new(0, 0, 0.945454538, 0)
@@ -256,7 +286,7 @@ function Library:Create(hubname, gamename)
 		Options.TextSize = 14.000
 		Options.TextWrapped = true
 
-		UICorner.Parent = Options
+		UICorner_2.Parent = Options
 
 		UIListLayout.Parent = OptionsContainer
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
