@@ -316,7 +316,7 @@ function Library:Create(hubname, gamename)
 		   elseif isDropped == false then
 		   	isDropped = true
 			    for i,v in pairs(OptionsContainer:GetChildren()) do 
-			        v.Visible = false
+			        v.Visible = true
 			    end
 			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 413)}):Play()
 			game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 0}):Play()
