@@ -232,6 +232,7 @@ function Library:Create(hubname, gamename)
 		local TextLabel_2 = Instance.new("TextLabel")
 		local UICorner_2 = Instance.new("UICorner")
 		local DropDown = Instance.new("TextButton")
+		local UIListLayout_3 = Instance.new("UIListLayout")
 		
 		local callback = callback or function() end
 		local options = options or {}
@@ -278,7 +279,7 @@ function Library:Create(hubname, gamename)
 
 			--Properties:
 
-			Options.Name = "Options"
+			Options.Name = v
 			Options.Parent = OptionsContainer
 			Options.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Options.BackgroundTransparency = 1.000
