@@ -312,9 +312,21 @@ function Library:Create(hubname, gamename)
 		local isDropped = false
 		
 		DropDown.MouseButton1Down:Connect(function()
-			    print("Clicked")
+		   if isDropped == false then
+		   	isDropped = true
+			    for i,v in pairs(OptionsContainer:GetChildren()) do 
+			        v.Visible = true
+			    end
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 413)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
+		   elseif isDropped == true then
+		   	isDropped = false
+			    for i,v in pairs(OptionsContainer:GetChildren()) do 
+			        v.Visible = false
+			    end
+			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
+			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
+		     end
 		end)
 	end
 	
