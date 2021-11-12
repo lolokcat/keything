@@ -227,6 +227,11 @@ function Library:Create(hubname, gamename)
 		end)
 	end
 	
+	
+	function Tween(asset, info, thing)
+	    game:GetService("TweenService"):Create(asset, info, thing):Play()
+	end
+	
 	function PageItems:DropDown(name, options, callback)
 		local DropDown = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner")
@@ -311,16 +316,16 @@ function Library:Create(hubname, gamename)
 			    for i,v in pairs(OptionsContainer:GetChildren()) do 
 			        v.Visible = false
 			    end
-			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 0)}):Play()
-			game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 90}):Play()
+			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
+			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
 		   elseif isDropped == false then
 		   	isDropped = true
 			    for i,v in pairs(OptionsContainer:GetChildren()) do 
 			        v.Visible = true
 			    end
-			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 413)}):Play()
-			game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 0}):Play()
-		   end
+			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 413)})
+			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
+		     end
 		end)
 	end
 	
