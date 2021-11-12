@@ -1,162 +1,200 @@
-local windows = {}
- 
 local Library = {}
  
 local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
-local mouse = game.Players.LocalPlayer:GetMouse() 
-
-print("loaded")
+local mouse = game.Players.LocalPlayer:GetMouse()
  
 function Library:Create(hubname, gamename)
-     print("Created")
-local LibGuithing = Instance.new("ScreenGui")
-local MainLib = Instance.new("Frame")
-local Corner = Instance.new("UICorner")
-local TabContainer = Instance.new("Frame")
-local Tab1 = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
-local ImageLabel = Instance.new("ImageLabel")
-local UIListLayout = Instance.new("UIListLayout")
-local HubName = Instance.new("TextLabel")
-local GameName = Instance.new("TextLabel")
-local Seperator = Instance.new("Frame")
-local TabContentContainer = Instance.new("ScrollingFrame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-
---Properties:
-
-LibGuithing.Name = "LibGuithing"
-LibGuithing.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-LibGuithing.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-MainLib.Name = "MainLib"
-MainLib.Parent = LibGuithing
-MainLib.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
-MainLib.Position = UDim2.new(0.225217387, 0, 0.310160428, 0)
-MainLib.Size = UDim2.new(0, 754, 0, 541)
-
-Corner.CornerRadius = UDim.new(0, 3)
-Corner.Name = "Corner"
-Corner.Parent = MainLib
-
-TabContainer.Name = "TabContainer"
-TabContainer.Parent = MainLib
-TabContainer.BackgroundColor3 = Color3.fromRGB(116, 116, 116)
-TabContainer.BackgroundTransparency = 1.000
-TabContainer.BorderSizePixel = 0
-TabContainer.Position = UDim2.new(0, 0, 0.14972274, 0)
-TabContainer.Size = UDim2.new(0, 205, 0, 460)
-
-Tab1.Name = "Tab1"
-Tab1.Parent = TabContainer
-Tab1.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-Tab1.BorderSizePixel = 0
-Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
-Tab1.Size = UDim2.new(0, 205, 0, 50)
-Tab1.AutoButtonColor = false
-Tab1.Font = Enum.Font.GothamBold
-Tab1.Text = ""
-Tab1.TextColor3 = Color3.fromRGB(206, 206, 206)
-Tab1.TextSize = 25.000
-Tab1.TextWrapped = true
-
-TextLabel.Parent = Tab1
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
-TextLabel.Size = UDim2.new(0, 123, 0, 50)
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "Main"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-ImageLabel.Parent = Tab1
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
-ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
-ImageLabel.Size = UDim2.new(0, 55, 0, 52)
-
-UIListLayout.Parent = TabContainer
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-
-HubName.Name = "HubName"
-HubName.Parent = MainLib
-HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-HubName.BackgroundTransparency = 1.000
-HubName.Position = UDim2.new(0.00795756001, 0, -0.000217938446, 0)
-HubName.Size = UDim2.new(0, 193, 0, 50)
-HubName.Font = Enum.Font.SourceSansBold
-HubName.Text = hubname
-HubName.TextColor3 = Color3.fromRGB(175, 175, 175)
-HubName.TextScaled = true
-HubName.TextSize = 14.000
-HubName.TextWrapped = true
-
-GameName.Name = "GameName"
-GameName.Parent = MainLib
-GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GameName.BackgroundTransparency = 1.000
-GameName.Position = UDim2.new(0, 0, 0.079264462, 0)
-GameName.Size = UDim2.new(0, 205, 0, 29)
-GameName.Font = Enum.Font.SourceSansBold
-GameName.Text = gamename
-GameName.TextColor3 = Color3.fromRGB(135, 135, 135)
-GameName.TextScaled = true
-GameName.TextSize = 14.000
-GameName.TextWrapped = true
-
-Seperator.Name = "Seperator"
-Seperator.Parent = MainLib
-Seperator.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
-Seperator.BorderSizePixel = 0
-Seperator.Position = UDim2.new(0.271883279, 0, 0, 0)
-Seperator.Size = UDim2.new(0, 7, 0, 541)
-
-TabContentContainer.Name = "TabContentContainer"
-TabContentContainer.Parent = MainLib
-TabContentContainer.Active = true
-TabContentContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabContentContainer.BackgroundTransparency = 1.000
-TabContentContainer.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TabContentContainer.BorderSizePixel = 0
-TabContentContainer.Position = UDim2.new(0.290450931, 0, 0.0110905729, 0)
-TabContentContainer.Size = UDim2.new(0, 535, 0, 535)
-TabContentContainer.BottomImage = ""
-TabContentContainer.TopImage = ""
-
-UIListLayout_2.Parent = TabContentContainer
-UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_2.Padding = UDim.new(0, 5)
+    local LibGuithing = Instance.new("ScreenGui")
+    local MainLib = Instance.new("Frame")
+    local Corner = Instance.new("UICorner")
+    local TabContainer = Instance.new("Frame")
+    local Tab1 = Instance.new("TextButton")
+    local TextLabel = Instance.new("TextLabel")
+    local ImageLabel = Instance.new("ImageLabel")
+    local UIListLayout = Instance.new("UIListLayout")
+    local HubName = Instance.new("TextLabel")
+    local GameName = Instance.new("TextLabel")
+    local Seperator = Instance.new("Frame")
+    local TabContentContainer = Instance.new("ScrollingFrame")
+    local UIListLayout_2 = Instance.new("UIListLayout")
+    
+    --Properties:
+    
+    LibGuithing.Name = "LibGuithing"
+    LibGuithing.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    LibGuithing.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    MainLib.Name = "MainLib"
+    MainLib.Parent = LibGuithing
+    MainLib.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+    MainLib.Position = UDim2.new(0.225217387, 0, 0.310160428, 0)
+    MainLib.Size = UDim2.new(0, 754, 0, 541)
+    
+    Corner.CornerRadius = UDim.new(0, 3)
+    Corner.Name = "Corner"
+    Corner.Parent = MainLib
+    
+    TabContainer.Name = "TabContainer"
+    TabContainer.Parent = MainLib
+    TabContainer.BackgroundColor3 = Color3.fromRGB(116, 116, 116)
+    TabContainer.BackgroundTransparency = 1.000
+    TabContainer.BorderSizePixel = 0
+    TabContainer.Position = UDim2.new(0, 0, 0.14972274, 0)
+    TabContainer.Size = UDim2.new(0, 205, 0, 460)
+    
+    Tab1.Name = "Tab1"
+    Tab1.Parent = TabContainer
+    Tab1.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    Tab1.BorderSizePixel = 0
+    Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
+    Tab1.Size = UDim2.new(0, 205, 0, 50)
+    Tab1.AutoButtonColor = false
+    Tab1.Font = Enum.Font.GothamBold
+    Tab1.Text = ""
+    Tab1.TextColor3 = Color3.fromRGB(206, 206, 206)
+    Tab1.TextSize = 25.000
+    Tab1.TextWrapped = true
+    
+    TextLabel.Parent = Tab1
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
+    TextLabel.Size = UDim2.new(0, 123, 0, 50)
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = "Main"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextWrapped = true
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    
+    ImageLabel.Parent = Tab1
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
+    ImageLabel.Size = UDim2.new(0, 55, 0, 52)
+    
+    UIListLayout.Parent = TabContainer
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    
+    HubName.Name = "HubName"
+    HubName.Parent = MainLib
+    HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    HubName.BackgroundTransparency = 1.000
+    HubName.Position = UDim2.new(0.00795756001, 0, -0.000217938446, 0)
+    HubName.Size = UDim2.new(0, 193, 0, 50)
+    HubName.Font = Enum.Font.SourceSansBold
+    HubName.Text = hubname
+    HubName.TextColor3 = Color3.fromRGB(175, 175, 175)
+    HubName.TextScaled = true
+    HubName.TextSize = 14.000
+    HubName.TextWrapped = true
+    
+    GameName.Name = "GameName"
+    GameName.Parent = MainLib
+    GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    GameName.BackgroundTransparency = 1.000
+    GameName.Position = UDim2.new(0, 0, 0.079264462, 0)
+    GameName.Size = UDim2.new(0, 205, 0, 29)
+    GameName.Font = Enum.Font.SourceSansBold
+    GameName.Text = gamename
+    GameName.TextColor3 = Color3.fromRGB(135, 135, 135)
+    GameName.TextScaled = true
+    GameName.TextSize = 14.000
+    GameName.TextWrapped = true
+    
+    Seperator.Name = "Seperator"
+    Seperator.Parent = MainLib
+    Seperator.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
+    Seperator.BorderSizePixel = 0
+    Seperator.Position = UDim2.new(0.271883279, 0, 0, 0)
+    Seperator.Size = UDim2.new(0, 7, 0, 541)
+    
+    TabContentContainer.Name = "TabContentContainer"
+    TabContentContainer.Parent = MainLib
+    TabContentContainer.Active = true
+    TabContentContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TabContentContainer.BackgroundTransparency = 1.000
+    TabContentContainer.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    TabContentContainer.BorderSizePixel = 0
+    TabContentContainer.Position = UDim2.new(0.290450931, 0, 0.0110905729, 0)
+    TabContentContainer.Size = UDim2.new(0, 535, 0, 535)
+    TabContentContainer.BottomImage = ""
+    TabContentContainer.TopImage = ""
+    
+    UIListLayout_2.Parent = TabContentContainer
+    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_2.Padding = UDim.new(0, 5)
  
-    local Win = {}
+	local Win = {}
  
-    function Win:Button(name, callback)
-        local callback = callback or function() end
-        local Button = Instance.new("TextButton")
+	function Win:Page(pagename, mainpage)
  
-        Button.Name = "Button"
-        Button.Parent = TabContentContainer
-        Button.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
-        Button.Size = UDim2.new(0, 517, 0, 55)
-        Button.AutoButtonColor = false
-        Button.Font = Enum.Font.GothamBold
-        Button.TextColor3 = Color3.fromRGB(193, 193, 193)
-        Button.TextSize = 37.000
-        Button.TextWrapped = true
+        Tab1.Name = "Tab1"
+        Tab1.Parent = TabContainer
+        Tab1.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+        Tab1.BorderSizePixel = 0
+        Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
+        Tab1.Size = UDim2.new(0, 205, 0, 50)
+        Tab1.AutoButtonColor = false
+        Tab1.Font = Enum.Font.GothamBold
+        Tab1.Text = ""
+        Tab1.TextColor3 = Color3.fromRGB(206, 206, 206)
+        Tab1.TextSize = 25.000
+        Tab1.TextWrapped = true
 
-        UICorner.CornerRadius = UDim.new(0, 5)
-        UICorner.Parent = Button
+        TextLabel.Parent = Tab1
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
+        TextLabel.Size = UDim2.new(0, 123, 0, 50)
+        TextLabel.Font = Enum.Font.GothamBold
+        TextLabel.Text = pagename
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextScaled = true
+        TextLabel.TextSize = 14.000
+        TextLabel.TextWrapped = true
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+        ImageLabel.Parent = Tab1
+        ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ImageLabel.BackgroundTransparency = 1.000
+        ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
+        ImageLabel.Size = UDim2.new(0, 55, 0, 52)
  
-        Button:MouseButton1Down:Connect(function()
-            pcall(callback)
-        end)
-    end
+		local PageItems = {} 
  
-    return Win
+		function PageItems:Button(buttonname, callback)
+ 
+			local callback = callback or function() end
+			
+            local Button = Instance.new("TextButton")
+ 
+            Button.Name = "Button"
+            Button.Parent = TabContentContainer
+            Button.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+            Button.Size = UDim2.new(0, 517, 0, 55)
+            Button.AutoButtonColor = false
+            Button.Font = Enum.Font.GothamBold
+            Button.TextColor3 = Color3.fromRGB(193, 193, 193)
+            Button.TextSize = 37.000
+            Button.TextWrapped = true
+
+            UICorner.CornerRadius = UDim.new(0, 5)
+            UICorner.Parent = Button
+ 
+            Button:MouseButton1Down:Connect(function()
+                pcall(callback)
+            end)
+ 
+		end
+ 
+		return PageItems
+ 
+	end
+ 
+	return Win
  
 end
  
