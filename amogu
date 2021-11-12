@@ -311,6 +311,7 @@ function Library:Create(hubname, gamename)
 			    for i,v in pairs(options) do 
 				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
 			    end
+			    isDropped = false
 			end)
 		end
 		
