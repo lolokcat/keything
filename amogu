@@ -301,6 +301,7 @@ function Library:Create(hubname, gamename)
 			Options.TextWrapped = true
 			Options.AutoButtonColor = false
 			Options.Visible = false
+			Options.TextTransparency = 1
 				
 			UICorner.Parent = Options
 			
@@ -316,6 +317,7 @@ function Library:Create(hubname, gamename)
 		   	isDropped = true
 			    for i,v in pairs(options) do 
 			    	OptionsContainer[v].Visible = true
+				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 0})
 			    end
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 413)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
@@ -323,6 +325,7 @@ function Library:Create(hubname, gamename)
 		   	isDropped = false
 			    for i,v in pairs(options) do 
 			    	OptionsContainer[v].Visible = false
+				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
 			    end
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
