@@ -170,7 +170,8 @@ function Library:Create(hubname, gamename)
 			local callback = callback or function() end
 			
             local Button = Instance.new("TextButton")
- 
+ 	    local UICorner = Instance.new("UICorner")
+		
             Button.Name = "Button"
             Button.Parent = TabContentContainer
             Button.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
