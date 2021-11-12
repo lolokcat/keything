@@ -307,7 +307,8 @@ function Library:Create(hubname, gamename)
 			
 			Options.MouseButton1Down:Connect(function()
 			   callback(Options.Text)
-			   DropDown.Text = v..":"..Options.Text
+			   
+			   DropDown.Text = name..":"..Options.Text
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
 			end)
