@@ -184,7 +184,7 @@ function Library:Create(hubname, gamename)
             UICorner.CornerRadius = UDim.new(0, 5)
             UICorner.Parent = Button
  
-            Button:MouseButton1Down:Connect(function()
+            Button.MouseButton1Down:Connect(function()
                 pcall(callback)
             end)
  
