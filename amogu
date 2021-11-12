@@ -222,10 +222,8 @@ function Library:Create(hubname, gamename)
 		TextField.TextSize = 14
 		TextField.TextWrapped = true
 		
-		TextField.FocusLost:Connect(function(EnterPressed)
-                        if not EnterPressed then return end
-			     callback(TextField.Text)
-			end
+		TextField.Changed:Connect(function()
+			callback(TextField.Text)
 		end)
 	end
 	
