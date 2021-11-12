@@ -5,6 +5,8 @@ local Library = {}
 local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse() 
+
+print("loaded")
  
 function Library:Create(hubname, gamename)
      print("Created")
