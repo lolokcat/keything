@@ -232,7 +232,6 @@ function Library:Create(hubname, gamename)
 		local UICorner = Instance.new("UICorner")
 		local TextLabel = Instance.new("TextLabel")
 		local OptionsContainer = Instance.new("Frame")
-		local Options = Instance.new("TextButton")
 		local UICorner_2 = Instance.new("UICorner")
 		local UIListLayout = Instance.new("UIListLayout")
 
@@ -273,21 +272,6 @@ function Library:Create(hubname, gamename)
 		OptionsContainer.Size = UDim2.new(0, 517, 0, 0)
 		OptionsContainer.ZIndex = 0
 
-		Options.Name = "Options"
-		Options.Parent = OptionsContainer
-		Options.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Options.BackgroundTransparency = 1.000
-		Options.Position = UDim2.new(0, 0, 0.644067824, 0)
-		Options.Size = UDim2.new(0, 517, 0, 50)
-		Options.AutoButtonColor = false
-		Options.Font = Enum.Font.SourceSansBold
-		Options.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Options.TextScaled = true
-		Options.TextSize = 14.000
-		Options.TextWrapped = true
-
-		UICorner_2.Parent = Options
-
 		UIListLayout.Parent = OptionsContainer
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		
@@ -310,6 +294,7 @@ function Library:Create(hubname, gamename)
 			Options.TextSize = 14.000
 			Options.TextWrapped = true
 			Options.AutoButtonColor = false
+			Options.Visible = false
 				
 			UICorner.Parent = Options
 			
@@ -321,12 +306,18 @@ function Library:Create(hubname, gamename)
 		DropDown.MouseButton1Down:Connect(function()
 		   if isDropped == true then
 		   	isDropped = false
+			    for i,v in pairs(OptionsContainer:GetChildren()) do 
+			        v.Visible = false
+			    end
 			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 0)}):Play()
-			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 90}):Play()
+			game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 90}):Play()
 		   elseif isDropped == false then
 		   	isDropped = true
+			    for i,v in pairs(OptionsContainer:GetChildren()) do 
+			        v.Visible = false
+			    end
 			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Size = UDim2.new(0, 517, 0, 413)}):Play()
-			game.TweenService:Create(OptionsContainer, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 0}):Play()
+			game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In),{Rotation = 0}):Play()
 		   end
 		end)
 	end
