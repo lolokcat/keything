@@ -229,6 +229,7 @@ function Library:Create(hubname, gamename)
 	
 	
 	function Tween(asset, info, thing)
+	    print("tween lmao") 
 	    game:GetService("TweenService"):Create(asset, info, thing):Play()
 	end
 	
