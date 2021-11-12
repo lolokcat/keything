@@ -311,6 +311,7 @@ function Library:Create(hubname, gamename)
 		local isDropped = false
 		
 		DropDown.MouseButton1Down:Connect(function()
+		   print("clicked")
 		   if isDropped == false then
 		   	isDropped = true
 			    for i,v in pairs(OptionsContainer:GetChildren()) do 
