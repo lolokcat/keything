@@ -233,6 +233,8 @@ function Library:Create(hubname, gamename)
 	    game:GetService("TweenService"):Create(asset, info, thing):Play()
 	end
 	
+	local isDropped = false
+	
 	function PageItems:DropDown(name, options, callback)
 		local DropDown = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner")
@@ -308,8 +310,6 @@ function Library:Create(hubname, gamename)
 			   callback(Options.Text)
 			end)
 		end
-		
-		local isDropped = false
 		
 		DropDown.MouseButton1Down:Connect(function()
 		   if isDropped == false then
