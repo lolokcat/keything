@@ -250,7 +250,7 @@ function Library:Create(hubname, gamename)
 		DropDown.Size = UDim2.new(0, 517, 0, 55)
 		DropDown.AutoButtonColor = false
 		DropDown.Font = Enum.Font.GothamBold
-		DropDown.Text = "Dropdown"
+		DropDown.Text = name
 		DropDown.TextColor3 = Color3.fromRGB(193, 193, 193)
 		DropDown.TextSize = 37.000
 		DropDown.TextWrapped = true
