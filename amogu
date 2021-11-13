@@ -324,7 +324,7 @@ function Library:Create(hubname, gamename)
 			    for i,v in pairs(options) do 
 				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 0})
 			    end
-			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 150 * #options)})
+			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 50 * #options)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
 		   elseif isDropped == true then
 		   	isDropped = false
