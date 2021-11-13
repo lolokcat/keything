@@ -311,10 +311,13 @@ function Library:Create(hubname, gamename)
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
 			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
+				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
 			    end
 			end)
 		end
+		
+		local contentsize = UIListLayout.AbsoluteContentSize
+		DropDown.CanvasSize = UDim2.new(0,contentsize.X,0,contentsize.Y)
 		
 		local isDropped = false
 		
@@ -322,16 +325,16 @@ function Library:Create(hubname, gamename)
 		   if isDropped == false then
 		   	isDropped = true
 			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 0})
+				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 0})
 			    end
 			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 413)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
 		   elseif isDropped == true then
 		   	isDropped = false
 			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.5), {TextTransparency = 1})
+				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
 			    end
-			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
+			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0,contentsize.X,0,contentsize.Y)})
 			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
 		     end
 		end)
