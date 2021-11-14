@@ -74,7 +74,6 @@ function WindowTable:CreateWindow()
         local elementsListing = Instance.new("UIListLayout") 
 	
 	local UIPadding = Instance.new("UIPadding")
-	local tabButton = Instance.new("TextButton")
 
 	UIPadding.Parent = game.StarterGui.UiFrame.MainFrame.allPages.newPage
 	UIPadding.PaddingTop = UDim.new(0, 4)
