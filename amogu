@@ -13,10 +13,8 @@ function WindowTable:CreateWindow(gamename)
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
 	local Gradient = Instance.new("UIGradient")
-
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
-
 	MainFrame.Name = "MainFrame"
 	MainFrame.Parent = UiFrame
 	MainFrame.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -27,13 +25,11 @@ function WindowTable:CreateWindow(gamename)
 	
 	Gradient.Parent = MainFrame
 	Gradient.Color = ColorSequence.new{
-		ColorSequenceKeypoint.new(0, Color3.new(0.215686, 0.807843, 0.87451)),
-		ColorSequenceKeypoint.new(1, Color3.new(0.356863, 0.533333, 0.898039))
+	ColorSequenceKeypoint.new(0, Color3.new(0.215686, 0.807843, 0.87451)),
+	ColorSequenceKeypoint.new(1, Color3.new(0.356863, 0.533333, 0.898039))
 	}
-
 	mainCorner.Parent = MainFrame
 	mainCorner.CornerRadius = UDim.new(0, 3)
-
 	allPages.Name = "allPages"
 	allPages.Parent = MainFrame
 	allPages.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
@@ -42,33 +38,27 @@ function WindowTable:CreateWindow(gamename)
 	
 	pagesFolder.Parent = allPages
 	pagesFolder.Name = "pagesFolder"
-
 	mainCorner2.Parent = allPages
 	mainCorner2.CornerRadius = UDim.new(0, 3)
-
 	SideBar.Name = "SideBar"
 	SideBar.Parent = MainFrame
 	SideBar.BackgroundColor3 = Color3.new(0.490196, 0.796079, 1)
 	SideBar.BorderSizePixel = 0
 	SideBar.Size = UDim2.new(0, 110, 0, 260)
-
 	sideCorner.Parent = SideBar
 	sideCorner.CornerRadius = UDim.new(0, 3)
-
 	coverCorner.Name = "coverCorner"
 	coverCorner.Parent = SideBar
 	coverCorner.BackgroundColor3 = Color3.new(0.490196, 0.796079, 1)
 	coverCorner.BorderSizePixel = 0
 	coverCorner.Position = UDim2.new(0.943925261, 0, 0, 0)
 	coverCorner.Size = UDim2.new(0, 6, 0, 260)
-
 	allTabs.Name = "allTabs"
 	allTabs.Parent = SideBar
 	allTabs.BackgroundColor3 = Color3.new(1, 1, 1)
 	allTabs.BackgroundTransparency = 1
 	allTabs.Position = UDim2.new(0.0500000007, 0, 0.0299999993, 0)
 	allTabs.Size = UDim2.new(0, 98, 0, 246)
-
 	tabListing.Name = "tabListing"
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
