@@ -12,6 +12,7 @@ function WindowTable:CreateWindow()
 	local sideCorner = Instance.new("UICorner")
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
+	local Gradient = Instance.new("UIGradient")
 
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
@@ -23,6 +24,12 @@ function WindowTable:CreateWindow()
 	MainFrame.BorderSizePixel = 0
 	MainFrame.Position = UDim2.new(0.119326502, 0, 0.64973259, 0)
 	MainFrame.Size = UDim2.new(0, 430, 0, 260)
+	
+	Gradient.Parent = MainFrame
+	Gradient.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.new(0.215686, 0.807843, 0.87451)),
+	ColorSequenceKeypoint.new(1, Color3.new(0.356863, 0.533333, 0.898039))
+	}
 
 	mainCorner.Parent = MainFrame
 	mainCorner.CornerRadius = UDim.new(0, 3)
