@@ -1,202 +1,156 @@
-local Library = {}
+local WindowTable = {} 
+ 
+function WindowTable:CreateWindow()
+	local UiFrame = Instance.new("ScreenGui")
+	local MainFrame = Instance.new("Frame")
+	local allPages = Instance.new("Frame")
+	local SideBar = Instance.new("Frame")
+	local coverCorner = Instance.new("Frame")
+	local allTabs = Instance.new("Frame")
+	local tabListing = Instance.new("UIListLayout")
+	local mainCorner = Instance.new("UICorner")
+	local sideCorner = Instance.new("UICorner")
+	local mainCorner2 = Instance.new("UICorner")
 
-function Library:Create(hubname)
-	local UiGui = Instance.new("ScreenGui")
-	local UiGui_2 = Instance.new("Frame")
-	local TabContainer = Instance.new("Frame")
-	local List = Instance.new("UIListLayout")
-	local tab1 = Instance.new("ImageButton")
-	local infotab = Instance.new("ImageButton")
-	local settingstab = Instance.new("ImageButton")
-	local helptab = Instance.new("ImageButton")
-	local Seperator = Instance.new("Frame")
-	local ContentDesignFrame = Instance.new("Frame")
-	local CurrentTabContent = Instance.new("ScrollingFrame")
-	local List2 = Instance.new("UIListLayout")
-	local CloseGui = Instance.new("ImageButton")
-	local TextLabel = Instance.new("TextLabel")
+	UiFrame.Name = "UiFrame"
+	UiFrame.Parent = game.CoreGui
 
-	UiGui.Name = "UiGui"
-	UiGui.Parent = game.CoreGui
+	MainFrame.Name = "MainFrame"
+	MainFrame.Parent = UiFrame
+	MainFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+	MainFrame.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+	MainFrame.BorderSizePixel = 0
+	MainFrame.Position = UDim2.new(0.119326502, 0, 0.64973259, 0)
+	MainFrame.Size = UDim2.new(0, 430, 0, 260)
 
-	UiGui_2.Name = "UiGui"
-	UiGui_2.Parent = UiGui
-	UiGui_2.BackgroundColor3 = Color3.new(1, 1, 1)
-	UiGui_2.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
-	UiGui_2.BorderSizePixel = 0
-	UiGui_2.Position = UDim2.new(0.0650936514, 0, 0.237967908, 0)
-	UiGui_2.Size = UDim2.new(0, 818, 0, 560)
+	mainCorner.Parent = MainFrame
+	mainCorner.CornerRadius = UDim.new(0, 3)
+
+	allPages.Name = "allPages"
+	allPages.Parent = MainFrame
+	allPages.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
+	allPages.Position = UDim2.new(0.274418592, 0, 0.0269230772, 0)
+	allPages.Size = UDim2.new(0, 306, 0, 245)
+
+	mainCorner2.Parent = allPages
+	mainCorner2.CornerRadius = UDim.new(0, 3)
+
+	SideBar.Name = "SideBar"
+	SideBar.Parent = MainFrame
+	SideBar.BackgroundColor3 = Color3.new(0.490196, 0.796079, 1)
+	SideBar.BorderSizePixel = 0
+	SideBar.Size = UDim2.new(0, 110, 0, 260)
+
+	sideCorner.Parent = SideBar
+	sideCorner.CornerRadius = UDim.new(0, 3)
+
+	coverCorner.Name = "coverCorner"
+	coverCorner.Parent = SideBar
+	coverCorner.BackgroundColor3 = Color3.new(0.490196, 0.796079, 1)
+	coverCorner.BorderSizePixel = 0
+	coverCorner.Position = UDim2.new(0.943925261, 0, 0, 0)
+	coverCorner.Size = UDim2.new(0, 6, 0, 260)
+
+	allTabs.Name = "allTabs"
+	allTabs.Parent = SideBar
+	allTabs.BackgroundColor3 = Color3.new(1, 1, 1)
+	allTabs.BackgroundTransparency = 1
+	allTabs.Position = UDim2.new(0.0500000007, 0, 0.0299999993, 0)
+	allTabs.Size = UDim2.new(0, 98, 0, 246)
+
+	tabListing.Name = "tabListing"
+	tabListing.Parent = allTabs
+	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
+	tabListing.Padding = UDim.new(0, 2)
+
+    local TabHandler = {}
+    
+    function TabHandler:CreateTab(tabname)
+        tabname = tabname or "New Tab"
 	
-	local Corner = Instance.new("UICorner")
-	Corner.Parent = UiGui_2
-	Corner.CornerRadius = UDim.new(0, 4)
-
-	TabContainer.Name = "TabContainer"
-	TabContainer.Parent = UiGui_2
-	TabContainer.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
-	TabContainer.BorderSizePixel = 0
-	TabContainer.Position = UDim2.new(-0.0501222499, 0, 0, 0)
-	TabContainer.Size = UDim2.new(0, 50, 0, 560)
-
-	List.Name = "List"
-	List.Parent = TabContainer
-	List.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	List.SortOrder = Enum.SortOrder.LayoutOrder
-	List.VerticalAlignment = Enum.VerticalAlignment.Center
-	List.Padding = UDim.new(0, 50)
-
-	tab1.Name = "tab1"
-	tab1.Parent = TabContainer
-	tab1.BackgroundTransparency = 1
-	tab1.Position = UDim2.new(0.5, 0, 0.5, 0)
-	tab1.Size = UDim2.new(0, 25, 0, 25)
-	tab1.ZIndex = 2
-	tab1.Image = "rbxassetid://3926305904"
-	tab1.ImageRectOffset = Vector2.new(964, 204)
-	tab1.ImageRectSize = Vector2.new(36, 36)
-
-	infotab.Name = "infotab"
-	infotab.Parent = TabContainer
-	infotab.BackgroundTransparency = 1
-	infotab.Position = UDim2.new(0.5, 0, 0.5, 0)
-	infotab.Size = UDim2.new(0, 25, 0, 25)
-	infotab.ZIndex = 2
-	infotab.Image = "rbxassetid://3926305904"
-	infotab.ImageRectOffset = Vector2.new(524, 444)
-	infotab.ImageRectSize = Vector2.new(36, 36)
-
-	settingstab.Name = "settingstab"
-	settingstab.Parent = TabContainer
-	settingstab.BackgroundTransparency = 1
-	settingstab.Position = UDim2.new(0.5, 0, 0.5, 0)
-	settingstab.Size = UDim2.new(0, 25, 0, 25)
-	settingstab.ZIndex = 2
-	settingstab.Image = "rbxassetid://3926307971"
-	settingstab.ImageRectOffset = Vector2.new(324, 124)
-	settingstab.ImageRectSize = Vector2.new(36, 36)
-
-	helptab.Name = "helptab"
-	helptab.Parent = TabContainer
-	helptab.BackgroundTransparency = 1
-	helptab.LayoutOrder = 3
-	helptab.Position = UDim2.new(0.5, 0, 0.5, 0)
-	helptab.Size = UDim2.new(0, 25, 0, 25)
-	helptab.ZIndex = 2
-	helptab.Image = "rbxassetid://3926305904"
-	helptab.ImageRectOffset = Vector2.new(924, 164)
-	helptab.ImageRectSize = Vector2.new(36, 36)
-
-	Seperator.Name = "Seperator"
-	Seperator.Parent = UiGui_2
-	Seperator.BackgroundColor3 = Color3.new(0.815686, 0.47451, 0.32549)
-	Seperator.BorderSizePixel = 0
-	Seperator.Position = UDim2.new(0.0110024447, 0, 0, 0)
-	Seperator.Size = UDim2.new(0, 9, 0, 560)
-
-	ContentDesignFrame.Name = "ContentDesignFrame"
-	ContentDesignFrame.Parent = UiGui_2
-	ContentDesignFrame.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
-	ContentDesignFrame.Position = UDim2.new(0.0293398518, 0, 0.0125000011, 0)
-	ContentDesignFrame.Size = UDim2.new(0, 785, 0, 545)
+	local tabButton = Instance.new("TextButton")
+        local tabCorner = Instance.new("UICorner")
+        local newPage = Instance.new("ScrollingFrame") 
+        local elementsListing = Instance.new("UIListLayout") 
 	
-		
-	local Corner = Instance.new("UICorner")
-	Corner.Parent = ContentDesignFrame
-	Corner.CornerRadius = UDim.new(0, 8)
+	local UIPadding = Instance.new("UIPadding")
+	local tabButton = Instance.new("TextButton")
 
-	CurrentTabContent.Name = "CurrentTabContent"
-	CurrentTabContent.Parent = ContentDesignFrame
-	CurrentTabContent.Active = true
-	CurrentTabContent.BackgroundColor3 = Color3.new(1, 1, 1)
-	CurrentTabContent.BackgroundTransparency = 1
-	CurrentTabContent.BorderSizePixel = 0
-	CurrentTabContent.Position = UDim2.new(-0.00764331222, 0, 0, 0)
-	CurrentTabContent.Size = UDim2.new(0, 791, 0, 545)
-	CurrentTabContent.BottomImage = ""
-	CurrentTabContent.MidImage = ""
-	CurrentTabContent.TopImage = ""
+	UIPadding.Parent = game.StarterGui.UiFrame.MainFrame.allPages.newPage
+	UIPadding.PaddingTop = UDim.new(0, 4)
+	
+	tabButton.Name = "tabButton"
+	tabButton.Parent = allTabs
+	tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
+	tabButton.Size = UDim2.new(0, 99, 0, 25)
+	tabButton.Font = Enum.Font.Gotham
+	tabButton.Text = tabname
+	tabButton.TextColor3 = Color3.new(1, 1, 1)
+	tabButton.TextSize = 14
+	
+	tabButton.MouseButton1Click:Connect(function()
+            for i,v in next, pagesFolder:GetChildren() do
+                v.Visible = false
+            end 
+            newPage.Visible = true
+	end)
 
-	List2.Name = "List2"
-	List2.Parent = CurrentTabContent
-	List2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	List2.SortOrder = Enum.SortOrder.LayoutOrder
-	List2.Padding = UDim.new(0, 10)
-	
-	CloseGui.Name = "CloseGui"
-	CloseGui.Parent = UiGui_2
-	CloseGui.BackgroundTransparency = 1
-	CloseGui.Position = UDim2.new(-0.0355382487, 0, 0.0254679024, 0)
-	CloseGui.Size = UDim2.new(0, 25, 0, 25)
-	CloseGui.ZIndex = 2
-	CloseGui.Image = "rbxassetid://6764432408"
-	CloseGui.ImageRectOffset = Vector2.new(100, 950)
-	CloseGui.ImageRectSize = Vector2.new(50, 50)
+	local tabCorner = Instance.new("UICorner")
 
-	TextLabel.Parent = UiGui_2
-	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
-	TextLabel.BackgroundTransparency = 1
-	TextLabel.Position = UDim2.new(0.881418109, 0, 0.544642866, 0)
-	TextLabel.Rotation = 90
-	TextLabel.Size = UDim2.new(0, 153, 0, 22)
-	TextLabel.Font = Enum.Font.GothamBold
-	TextLabel.Text = hubname
-	TextLabel.TextColor3 = Color3.new(1, 1, 1)
-	TextLabel.TextScaled = true
-	TextLabel.TextSize = 14
-	TextLabel.TextStrokeColor3 = Color3.new(1, 1, 1)
-	TextLabel.TextWrapped = true
+	tabCorner.Parent = tabButton
+	tabCorner.CornerRadius = UDim.new(0, 3)
 	
-		local PageItems = {} 
+	newPage.Name = "newPage"
+	newPage.Parent = allPages
+	newPage.Active = true
+	newPage.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
+	newPage.BackgroundTransparency = 1
+	newPage.BorderSizePixel = 0
+	newPage.Size = UDim2.new(1, 0, 1, 0)
+	newPage.CanvasPosition = Vector2.new(0, 245)
+	newPage.ScrollBarThickness = 5
+
+	elementsListing.Name = "elementsListing"
+	elementsListing.Parent = newPage
+	elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
+	elementsListing.Padding = UDim.new(0, 5)
 	
-	function PageItems:Button(name, callback)
-		local Button = Instance.new("TextButton")
+	local elementsPadding = Instance.new("UIPadding")
+ 
+        elementsPadding.Name = "elementsPadding"
+        elementsPadding.Parent = newPage
+        elementsPadding.PaddingRight = UDim.new(0, 5)
+        elementsPadding.PaddingTop = UDim.new(0, 5)
+        
+        local ElementHandler = {}
+        
+        function ElementHandler:CreateButton(btnText, callback)
+            	btnText = btnText or "Text Button"
+            	callback = callback or function() end  
+
+		tabButton.Name = "Button"
+		tabButton.Parent = newPage
+		tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
+		tabButton.Position = UDim2.new(0.338235289, 0, 0, 0)
+		tabButton.Size = UDim2.new(0, 275, 0, 25)
+		tabButton.Font = Enum.Font.Gotham
+		tabButton.Text = btnText
+		tabButton.TextColor3 = Color3.new(1, 1, 1)
+		tabButton.TextSize = 14
 		
-		local callback = callback or function() end
+		local tabCorner = Instance.new("UICorner")
+
+		tabCorner.Parent = tabButton
+		tabCorner.CornerRadius = UDim.new(0, 3)
 		
-		Button.Name = "Button"
-		Button.Parent = CurrentTabContent
-		Button.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
-		Button.Size = UDim2.new(0, 764, 0, 50)
-		Button.AutoButtonColor = false
-		Button.Font = Enum.Font.GothamBold
-		Button.Text = name
-		Button.TextColor3 = Color3.new(1, 1, 1)
-		Button.TextSize = 29
-		
-			
-		local Corner = Instance.new("UICorner")
-		Corner.Parent = Button
-		
-		Button.MouseButton1Down:Connect(function()
-		     callback()
+		tabButton.MouseButton1Click:Connect(function()
+			callback()
 		end)
-	end
-	
-	function PageItems:TextField(placeholdertext, callback)
-		local TextField = Instance.new("TextBox")
-		
-		local callback = callback or function() end
-		
-		TextField.Name = "TextField"
-		TextField.Parent = CurrentTabContent
-		TextField.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
-		TextField.Position = UDim2.new(0, 0, 0.220183492, 0)
-		TextField.Size = UDim2.new(0, 764, 0, 50)
-		TextField.Font = Enum.Font.GothamBold
-		TextField.PlaceholderColor3 = Color3.new(1, 1, 1)
-		TextField.PlaceholderText = placeholdertext
-		TextField.Text = ""
-		TextField.TextColor3 = Color3.new(0, 0, 0)
-		TextField.TextSize = 29
-		
-		TextField.FocusLost:Connect(function(enterPressed)
-		    if enterPressed then
-			callback(TextField.Text)
-		    end
-		end)
-	end
-	
-	return PageItems
+        end
+        
+        return ElementHandler
+    end
+    return TabHandler
 end
-
-return Library
+return WindowTable
