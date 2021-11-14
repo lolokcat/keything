@@ -206,13 +206,12 @@ function Library:Create(hubname)
 		end)
 	end
 	
+	local Activated = false
+	
 	function PageItems:DropDown(options, callback)
 		local options = options or {}
 		
 		local callback = callback or function() end
-		
-		
-		local Activated = false
 		
 		DropDown.Name = "DropDown"
 		DropDown.Parent = CurrentTabContent
@@ -270,6 +269,10 @@ function Library:Create(hubname)
 		OptionLabel.TextSize = 29
 		OptionLabel.TextWrapped = true
 		
+		function Tween(asset, info, thing)
+			game:GetService("TweenService"):Create(asset, info, thing):Play()
+		end
+		
 		for i,v in pairs(options) do 
 			local Button = Instance.new("TextButton")
 			local TextLabel = Instance.new("TextLabel")
@@ -303,10 +306,6 @@ function Library:Create(hubname)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14
 			TextLabel.TextWrapped = true
-			
-			function Tween(asset, info, thing)
-				game:GetService("TweenService"):Create(asset, info, thing):Play()
-			end
 			
 			Button.MouseButton1Down:Connect(function()
 			      callback(v)
