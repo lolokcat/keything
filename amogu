@@ -1,7 +1,150 @@
 local Library = {}
 
 function Library:Create()
-      print("ok")
+      local UiGui = Instance.new("ScreenGui")
+	local UiGui_2 = Instance.new("Frame")
+	local TabContainer = Instance.new("Frame")
+	local List = Instance.new("UIListLayout")
+	local tab1 = Instance.new("ImageButton")
+	local infotab = Instance.new("ImageButton")
+	local settingstab = Instance.new("ImageButton")
+	local helptab = Instance.new("ImageButton")
+	local Seperator = Instance.new("Frame")
+	local ContentDesignFrame = Instance.new("Frame")
+	local CurrentTabContent = Instance.new("ScrollingFrame")
+	local List2 = Instance.new("UIListLayout")
+	local CloseGui = Instance.new("ImageButton")
+	local TextLabel = Instance.new("TextLabel")
+
+	UiGui.Name = "UiGui"
+	UiGui.Parent = game.CoreGui
+
+	UiGui_2.Name = "UiGui"
+	UiGui_2.Parent = UiGui
+	UiGui_2.BackgroundColor3 = Color3.new(1, 1, 1)
+	UiGui_2.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+	UiGui_2.BorderSizePixel = 0
+	UiGui_2.Position = UDim2.new(0.0650936514, 0, 0.237967908, 0)
+	UiGui_2.Size = UDim2.new(0, 818, 0, 560)
+	
+	local Corner = Instance.new("UICorner")
+	Corner.Parent = UiGui_2
+	Corner.CornerRadius = UDim.new(0, 4)
+
+	TabContainer.Name = "TabContainer"
+	TabContainer.Parent = UiGui_2
+	TabContainer.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
+	TabContainer.BorderSizePixel = 0
+	TabContainer.Position = UDim2.new(-0.0501222499, 0, 0, 0)
+	TabContainer.Size = UDim2.new(0, 50, 0, 560)
+
+	List.Name = "List"
+	List.Parent = TabContainer
+	List.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	List.SortOrder = Enum.SortOrder.LayoutOrder
+	List.VerticalAlignment = Enum.VerticalAlignment.Center
+	List.Padding = UDim.new(0, 50)
+
+	tab1.Name = "tab1"
+	tab1.Parent = TabContainer
+	tab1.BackgroundTransparency = 1
+	tab1.Position = UDim2.new(0.5, 0, 0.5, 0)
+	tab1.Size = UDim2.new(0, 25, 0, 25)
+	tab1.ZIndex = 2
+	tab1.Image = "rbxassetid://3926305904"
+	tab1.ImageRectOffset = Vector2.new(964, 204)
+	tab1.ImageRectSize = Vector2.new(36, 36)
+
+	infotab.Name = "infotab"
+	infotab.Parent = TabContainer
+	infotab.BackgroundTransparency = 1
+	infotab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	infotab.Size = UDim2.new(0, 25, 0, 25)
+	infotab.ZIndex = 2
+	infotab.Image = "rbxassetid://3926305904"
+	infotab.ImageRectOffset = Vector2.new(524, 444)
+	infotab.ImageRectSize = Vector2.new(36, 36)
+
+	settingstab.Name = "settingstab"
+	settingstab.Parent = TabContainer
+	settingstab.BackgroundTransparency = 1
+	settingstab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	settingstab.Size = UDim2.new(0, 25, 0, 25)
+	settingstab.ZIndex = 2
+	settingstab.Image = "rbxassetid://3926307971"
+	settingstab.ImageRectOffset = Vector2.new(324, 124)
+	settingstab.ImageRectSize = Vector2.new(36, 36)
+
+	helptab.Name = "helptab"
+	helptab.Parent = TabContainer
+	helptab.BackgroundTransparency = 1
+	helptab.LayoutOrder = 3
+	helptab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	helptab.Size = UDim2.new(0, 25, 0, 25)
+	helptab.ZIndex = 2
+	helptab.Image = "rbxassetid://3926305904"
+	helptab.ImageRectOffset = Vector2.new(924, 164)
+	helptab.ImageRectSize = Vector2.new(36, 36)
+
+	Seperator.Name = "Seperator"
+	Seperator.Parent = UiGui_2
+	Seperator.BackgroundColor3 = Color3.new(0.815686, 0.47451, 0.32549)
+	Seperator.BorderSizePixel = 0
+	Seperator.Position = UDim2.new(0.0110024447, 0, 0, 0)
+	Seperator.Size = UDim2.new(0, 9, 0, 560)
+
+	ContentDesignFrame.Name = "ContentDesignFrame"
+	ContentDesignFrame.Parent = UiGui_2
+	ContentDesignFrame.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
+	ContentDesignFrame.Position = UDim2.new(0.0293398518, 0, 0.0125000011, 0)
+	ContentDesignFrame.Size = UDim2.new(0, 785, 0, 545)
+	
+		
+	local Corner = Instance.new("UICorner")
+	Corner.Parent = ContentDesignFrame
+	Corner.CornerRadius = UDim.new(0, 8)
+
+	CurrentTabContent.Name = "CurrentTabContent"
+	CurrentTabContent.Parent = ContentDesignFrame
+	CurrentTabContent.Active = true
+	CurrentTabContent.BackgroundColor3 = Color3.new(1, 1, 1)
+	CurrentTabContent.BackgroundTransparency = 1
+	CurrentTabContent.BorderSizePixel = 0
+	CurrentTabContent.Position = UDim2.new(-0.00764331222, 0, 0, 0)
+	CurrentTabContent.Size = UDim2.new(0, 791, 0, 545)
+	CurrentTabContent.BottomImage = ""
+	CurrentTabContent.MidImage = ""
+	CurrentTabContent.TopImage = ""
+
+	List2.Name = "List2"
+	List2.Parent = CurrentTabContent
+	List2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	List2.SortOrder = Enum.SortOrder.LayoutOrder
+	List2.Padding = UDim.new(0, 10)
+	
+	CloseGui.Name = "CloseGui"
+	CloseGui.Parent = UiGui_2
+	CloseGui.BackgroundTransparency = 1
+	CloseGui.Position = UDim2.new(-0.0355382487, 0, 0.0254679024, 0)
+	CloseGui.Size = UDim2.new(0, 25, 0, 25)
+	CloseGui.ZIndex = 2
+	CloseGui.Image = "rbxassetid://6764432408"
+	CloseGui.ImageRectOffset = Vector2.new(100, 950)
+	CloseGui.ImageRectSize = Vector2.new(50, 50)
+
+	TextLabel.Parent = UiGui_2
+	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.Position = UDim2.new(0.881418109, 0, 0.544642866, 0)
+	TextLabel.Rotation = 90
+	TextLabel.Size = UDim2.new(0, 153, 0, 22)
+	TextLabel.Font = Enum.Font.GothamBold
+	TextLabel.Text = hubname
+	TextLabel.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14
+	TextLabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+	TextLabel.TextWrapped = true
 end
 
 return Library
