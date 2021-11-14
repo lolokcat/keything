@@ -112,7 +112,6 @@ function WindowTable:CreateWindow()
 	newPage.BackgroundTransparency = 1
 	newPage.BorderSizePixel = 0
 	newPage.Size = UDim2.new(1, 0, 1, 0)
-	newPage.CanvasPosition = Vector2.new(0, 245)
 	newPage.ScrollBarThickness = 5
 
 	elementsListing.Name = "elementsListing"
