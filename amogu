@@ -4,7 +4,7 @@ local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse()
  
-function Library.Create(hubname)
+function Library:Create(hubname)
 	local UiGui = Instance.new("ScreenGui")
 	local UiGui_2 = Instance.new("Frame")
 	local TabContainer = Instance.new("Frame")
@@ -17,6 +17,8 @@ function Library.Create(hubname)
 	local ContentDesignFrame = Instance.new("Frame")
 	local CurrentTabContent = Instance.new("ScrollingFrame")
 	local List2 = Instance.new("UIListLayout")
+	local CloseGui = Instance.new("ImageButton")
+	local TextLabel = Instance.new("TextLabel")
 
 	UiGui.Name = "UiGui"
 	UiGui.Parent = game.CoreGui
