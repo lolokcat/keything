@@ -1,11 +1,1 @@
-local Library = {}
- 
-local TS = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
-local mouse = game.Players.LocalPlayer:GetMouse()
- 
-function Library:Create(hubname)
-	print("Debug lmao")
-end
- 
-return Library
+print("amogu")
