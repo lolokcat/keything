@@ -1,7 +1,7 @@
 local Library = {}
 
-function Library:Create()
-      local UiGui = Instance.new("ScreenGui")
+function Library:Create(hubname)
+        local UiGui = Instance.new("ScreenGui")
 	local UiGui_2 = Instance.new("Frame")
 	local TabContainer = Instance.new("Frame")
 	local List = Instance.new("UIListLayout")
