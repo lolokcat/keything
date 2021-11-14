@@ -88,7 +88,7 @@ function WindowTable:CreateWindow()
 	tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
 	tabButton.Size = UDim2.new(0, 99, 0, 25)
 	tabButton.Font = Enum.Font.Gotham
-	tabButton.Text = "Example"
+	tabButton.Text = tabname
 	tabButton.TextColor3 = Color3.new(1, 1, 1)
 	tabButton.TextSize = 14
 	
@@ -102,6 +102,7 @@ function WindowTable:CreateWindow()
 	local tabCorner = Instance.new("UICorner")
 
 	tabCorner.Parent = tabButton
+	tabCorner.Name = "sideCorner"
 	tabCorner.CornerRadius = UDim.new(0, 3)
 	
 	newPage.Name = "newPage"
@@ -125,7 +126,9 @@ function WindowTable:CreateWindow()
         function ElementHandler:CreateButton(btnText, callback)
             	btnText = btnText or "Text Button"
             	callback = callback or function() end  
-
+		
+		local tabButton = Instance.new("TextButton")
+		
 		tabButton.Name = "Button"
 		tabButton.Parent = newPage
 		tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
