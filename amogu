@@ -158,6 +158,8 @@ function Library:Create(hubname)
 	
 	function Win:Page()
 	
+	print("window lol")
+	
 	local PageItems = {} 
 	
 	function PageItems:Button(name, callback)
