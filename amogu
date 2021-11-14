@@ -12,6 +12,8 @@ function WindowTable:CreateWindow(gamename)
 	local sideCorner = Instance.new("UICorner")
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
+	local gamename = Instance.new("TextLabel")
+	local mogushub = Instance.new("TextLabel")
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
 	MainFrame.Name = "MainFrame"
@@ -56,9 +58,6 @@ function WindowTable:CreateWindow(gamename)
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-	
-	local gamename = Instance.new("TextLabel")
-	local mogushub = Instance.new("TextLabel")
 	
 	gamename.Name = "gamename"
 	gamename.Parent = SideBar
