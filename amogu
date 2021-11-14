@@ -24,40 +24,13 @@ function WindowTable:CreateWindow()
     MainFrame.Position = UDim2.new(0.396969676, 0, 0.302184463, 0)
     MainFrame.Size = UDim2.new(0, 430, 0, 260)
     
-    local UIS = game:GetService('UserInputService')
     local frame = MainFrame
-    local dragToggle = nil
-    local dragSpeed = 0.25
-    local dragStart = nil
-    local startPos = nil
-
-    local function updateInput(input)
-     local delta = input.Position - dragStart
-     local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-      startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-     game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+    
+    if frame then
+       frame.Draggable = true
+       frame.Active = true
+       frame.Selectable = true
     end
-
-    frame.InputBegan:Connect(function(input)
-     if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-      dragToggle = true
-      dragStart = input.Position
-      startPos = frame.Position
-      input.Changed:Connect(function()
-       if input.UserInputState == Enum.UserInputState.End then
-        dragToggle = false
-       end
-      end)
-     end
-    end)
-
-    UIS.InputChanged:Connect(function(input)
-     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-      if dragToggle then
-       updateInput(input)
-      end
-     end
-    end)
   
     mainCorner.CornerRadius = UDim.new(0, 3)
     mainCorner.Name = "mainCorner"
@@ -106,6 +79,34 @@ function WindowTable:CreateWindow()
  
     pagesFolder.Name = "pagesFolder"
     pagesFolder.Parent = allPages
+    
+    local gamename = Instance.new("TextLabel")
+	   local mogushub = Instance.new("TextLabel")
+
+    	gamename.Name = "gamename"
+     gamename.Parent = SideBar
+     gamename.BackgroundColor3 = Color3.new(1, 1, 1)
+     gamename.BackgroundTransparency = 1
+     gamename.Position = UDim2.new(0, 0, 0.873076916, 0)
+     gamename.Size = UDim2.new(0, 109, 0, 13)
+     gamename.Font = Enum.Font.GothamBold
+     gamename.Text = "'MOGUS HUB"
+     gamename.TextColor3 = Color3.new(1, 1, 1)
+     gamename.TextSize = 15
+     gamename.TextWrapped = true
+
+     mogushub.Name = "mogushub"
+     mogushub.Parent = SideBar
+     mogushub.BackgroundColor3 = Color3.new(1, 1, 1)
+     mogushub.BackgroundTransparency = 1
+     mogushub.Position = UDim2.new(0, 0, 0.923076928, 0)
+     mogushub.Size = UDim2.new(0, 109, 0, 20)
+     mogushub.Font = Enum.Font.GothamBold
+     mogushub.Text = gamename
+     mogushub.TextColor3 = Color3.new(1, 1, 1)
+     mogushub.TextSize = 15
+     mogushub.TextTransparency = 0.30000001192093
+     mogushub.TextWrapped = true
     
     local TabHandler = {}
     
