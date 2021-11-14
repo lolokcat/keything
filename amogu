@@ -73,6 +73,14 @@ function WindowTable:CreateWindow()
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
+	
+	local Frame = Instance.new("Frame")
+ 
+	Frame.Parent = SideBar
+	Frame.BackgroundColor3 = Color3.new(0.337255, 0.545098, 0.686275)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(0.0500000007, 0, 0.0269230772, 0)
+	Frame.Size = UDim2.new(0, 6, 0, 25)
 
     local TabHandler = {}
     
@@ -104,6 +112,7 @@ function WindowTable:CreateWindow()
                 v.Visible = false   -- then we make them invisible 
             end 
             newPage.Visible = true  -- We make current page visible but not others
+	    game.TweenService:Create(Frame, TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0.0500000007, 0, tabButton.AbsolutePosition.Y, 0)})
 	end)
 
 	local tabCorner = Instance.new("UICorner")
