@@ -1,6 +1,6 @@
 local WindowTable = {} 
  
-function WindowTable:CreateWindow(gamename)
+function WindowTable:CreateWindow()
 	local UiFrame = Instance.new("ScreenGui")
 	local MainFrame = Instance.new("Frame")
 	local allPages = Instance.new("Frame")
@@ -63,9 +63,9 @@ function WindowTable:CreateWindow(gamename)
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-
+	
     local TabHandler = {}
-    
+
     function TabHandler:CreateTab(tabname)
         tabname = tabname or "New Tab"
 	local tabButton = Instance.new("TextButton")
@@ -95,6 +95,7 @@ function WindowTable:CreateWindow(gamename)
             end 
             newPage.Visible = true  -- We make current page visible but not others
 	end)
+
 	local tabCorner = Instance.new("UICorner")
 	tabCorner.Parent = tabButton
 	tabCorner.Name = "sideCorner"
@@ -137,7 +138,6 @@ function WindowTable:CreateWindow(gamename)
 		end)
 		
 		local tabCorner = Instance.new("UICorner")
-
 		tabCorner.Parent = tabButton
 		tabCorner.CornerRadius = UDim.new(0, 3)
         end
