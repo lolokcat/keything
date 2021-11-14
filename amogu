@@ -19,10 +19,6 @@ function Library:Create(hubname)
 	local List2 = Instance.new("UIListLayout")
 	local CloseGui = Instance.new("ImageButton")
 	local TextLabel = Instance.new("TextLabel")
-	
-	function Tween(asset, info, thing)
-		game:GetService("TweenService"):Create(asset, info, thing):Play()
-	end
 
 	UiGui.Name = "UiGui"
 	UiGui.Parent = game.CoreGui
@@ -307,6 +303,10 @@ function Library:Create(hubname)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14
 			TextLabel.TextWrapped = true
+			
+			function Tween(asset, info, thing)
+				game:GetService("TweenService"):Create(asset, info, thing):Play()
+			end
 			
 			Button.MouseButton1Down:Connect(function()
 			      callback(v)
