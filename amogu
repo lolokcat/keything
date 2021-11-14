@@ -19,6 +19,11 @@ function Library:Create(hubname)
 	local List2 = Instance.new("UIListLayout")
 	local CloseGui = Instance.new("ImageButton")
 	local TextLabel = Instance.new("TextLabel")
+	
+	
+	function Tween(asset, info, thing)
+		game:GetService("TweenService"):Create(asset, info, thing):Play()
+	end
 
 	UiGui.Name = "UiGui"
 	UiGui.Parent = game.CoreGui
