@@ -99,19 +99,13 @@ function WindowTable:CreateWindow(gamename)
 	tabButton.TextColor3 = Color3.new(1, 1, 1)
 	tabButton.TextSize = 14
 	
-	for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
-                v.Visible = false   -- then we make them invisible 
-        end 
-	
 	tabButton.MouseButton1Click:Connect(function()
             for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
                 v.Visible = false   -- then we make them invisible 
             end 
             newPage.Visible = true  -- We make current page visible but not others
 	end)
-
 	local tabCorner = Instance.new("UICorner")
-
 	tabCorner.Parent = tabButton
 	tabCorner.Name = "sideCorner"
 	tabCorner.CornerRadius = UDim.new(0, 3)
@@ -124,8 +118,6 @@ function WindowTable:CreateWindow(gamename)
 	newPage.BorderSizePixel = 0
 	newPage.Size = UDim2.new(1, 0, 1, 0)
 	newPage.ScrollBarThickness = 5
-	newPage.Visible = false
-
 	elementsListing.Name = "elementsListing"
 	elementsListing.Parent = newPage
 	elementsListing.HorizontalAlignment = Enum.HorizontalAlignment.Center
