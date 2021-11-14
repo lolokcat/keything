@@ -13,6 +13,8 @@ function WindowTable:CreateWindow(gamename)
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
 	local Gradient = Instance.new("UIGradient")
+	local gamename = Instance.new("TextLabel")
+	local mogushub = Instance.new("TextLabel")
 
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
@@ -73,9 +75,6 @@ function WindowTable:CreateWindow(gamename)
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-
-	local gamename = Instance.new("TextLabel")
-	local mogushub = Instance.new("TextLabel")
 
 	gamename.Name = "gamename"
 	gamename.Parent = SideBar
