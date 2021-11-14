@@ -41,6 +41,20 @@ function WindowTable:CreateWindow()
     SideBar.BackgroundColor3 = Color3.fromRGB(35, 38, 42)
     SideBar.BorderSizePixel = 0
     SideBar.Size = UDim2.new(0, 110, 0, 260)
+    
+     local gamename = Instance.new("TextLabel")
+
+     gamename.Name = "gamename"
+     gamename.Parent = SideBar
+     gamename.BackgroundColor3 = Color3.new(1, 1, 1)
+     gamename.BackgroundTransparency = 1
+     gamename.Position = UDim2.new(0, 0, 0.873076916, 0)
+     gamename.Size = UDim2.new(0, 109, 0, 13)
+     gamename.Font = Enum.Font.GothamBold
+     gamename.Text = "'MOGUS HUB"
+     gamename.TextColor3 = Color3.new(1, 1, 1)
+     gamename.TextSize = 15
+     gamename.TextWrapped = true
  
     sideCorner.CornerRadius = UDim.new(0, 3)
     sideCorner.Name = "sideCorner"
