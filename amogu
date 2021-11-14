@@ -12,7 +12,6 @@ function WindowTable:CreateWindow()
 	local sideCorner = Instance.new("UICorner")
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
-	local Gradient = Instance.new("UIGradient")
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
 	MainFrame.Name = "MainFrame"
@@ -22,12 +21,6 @@ function WindowTable:CreateWindow()
 	MainFrame.BorderSizePixel = 0
 	MainFrame.Position = UDim2.new(0.119326502, 0, 0.64973259, 0)
 	MainFrame.Size = UDim2.new(0, 430, 0, 260)
-	
-	Gradient.Parent = MainFrame
-	Gradient.Color = ColorSequence.new{
-	ColorSequenceKeypoint.new(0, Color3.new(0.215686, 0.807843, 0.87451)),
-	ColorSequenceKeypoint.new(1, Color3.new(0.356863, 0.533333, 0.898039))
-	}
 	mainCorner.Parent = MainFrame
 	mainCorner.CornerRadius = UDim.new(0, 3)
 	allPages.Name = "allPages"
@@ -63,9 +56,8 @@ function WindowTable:CreateWindow()
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-	
     local TabHandler = {}
-
+    
     function TabHandler:CreateTab(tabname)
         tabname = tabname or "New Tab"
 	local tabButton = Instance.new("TextButton")
@@ -88,19 +80,19 @@ function WindowTable:CreateWindow()
 	tabButton.Text = tabname
 	tabButton.TextColor3 = Color3.new(1, 1, 1)
 	tabButton.TextSize = 14
-	
+
 	tabButton.MouseButton1Click:Connect(function()
             for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
                 v.Visible = false   -- then we make them invisible 
             end 
             newPage.Visible = true  -- We make current page visible but not others
 	end)
-
 	local tabCorner = Instance.new("UICorner")
+
 	tabCorner.Parent = tabButton
 	tabCorner.Name = "sideCorner"
 	tabCorner.CornerRadius = UDim.new(0, 3)
-	
+
 	newPage.Name = "newPage"
 	newPage.Parent = pagesFolder
 	newPage.Active = true
@@ -108,6 +100,7 @@ function WindowTable:CreateWindow()
 	newPage.BackgroundTransparency = 1
 	newPage.BorderSizePixel = 0
 	newPage.Size = UDim2.new(1, 0, 1, 0)
+	newPage.CanvasPosition = Vector2.new(0, 245)
 	newPage.ScrollBarThickness = 5
 	elementsListing.Name = "elementsListing"
 	elementsListing.Parent = newPage
@@ -120,9 +113,10 @@ function WindowTable:CreateWindow()
         function ElementHandler:CreateButton(btnText, callback)
             	btnText = btnText or "Text Button"
             	callback = callback or function() end  
-		
+
+
 		local tabButton = Instance.new("TextButton")
-		
+
 		tabButton.Name = "Button"
 		tabButton.Parent = newPage
 		tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
@@ -133,13 +127,13 @@ function WindowTable:CreateWindow()
 		tabButton.TextColor3 = Color3.new(1, 1, 1)
 		tabButton.TextSize = 14
 		
-		tabButton.MouseButton1Click:Connect(function()
-			callback()
-		end)
-		
 		local tabCorner = Instance.new("UICorner")
 		tabCorner.Parent = tabButton
 		tabCorner.CornerRadius = UDim.new(0, 3)
+		
+		tabButton.MouseButton1Click:Connect(function()
+			callback()
+		end)
         end
         
         return ElementHandler
