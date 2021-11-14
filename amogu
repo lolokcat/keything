@@ -4,345 +4,308 @@ local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse()
  
-function Library:Create(hubname, gamename)
-    local LibGuithing = Instance.new("ScreenGui")
-    local MainLib = Instance.new("Frame")
-    local Corner = Instance.new("UICorner")
-    local TabContainer = Instance.new("Frame")
-    local Tab1 = Instance.new("TextButton")
-    local TextLabel = Instance.new("TextLabel")
-    local ImageLabel = Instance.new("ImageLabel")
-    local UIListLayout = Instance.new("UIListLayout")
-    local HubName = Instance.new("TextLabel")
-    local GameName = Instance.new("TextLabel")
-    local Seperator = Instance.new("Frame")
-    local TabContentContainer = Instance.new("ScrollingFrame")
-    local UIListLayout_2 = Instance.new("UIListLayout")
-    
-    --Properties:
-    
-    LibGuithing.Name = "LibGuithing"
-    LibGuithing.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-    LibGuithing.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    
-    MainLib.Name = "MainLib"
-    MainLib.Parent = LibGuithing
-    MainLib.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
-    MainLib.Position = UDim2.new(0.225217387, 0, 0.310160428, 0)
-    MainLib.Size = UDim2.new(0, 754, 0, 541)
-    
-    Corner.CornerRadius = UDim.new(0, 3)
-    Corner.Name = "Corner"
-    Corner.Parent = MainLib
-    
-    TabContainer.Name = "TabContainer"
-    TabContainer.Parent = MainLib
-    TabContainer.BackgroundColor3 = Color3.fromRGB(116, 116, 116)
-    TabContainer.BackgroundTransparency = 1.000
-    TabContainer.BorderSizePixel = 0
-    TabContainer.Position = UDim2.new(0, 0, 0.14972274, 0)
-    TabContainer.Size = UDim2.new(0, 205, 0, 460)
-    
-    Tab1.Name = "Tab1"
-    Tab1.Parent = TabContainer
-    Tab1.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-    Tab1.BorderSizePixel = 0
-    Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
-    Tab1.Size = UDim2.new(0, 205, 0, 50)
-    Tab1.AutoButtonColor = false
-    Tab1.Font = Enum.Font.GothamBold
-    Tab1.Text = ""
-    Tab1.TextColor3 = Color3.fromRGB(206, 206, 206)
-    Tab1.TextSize = 25.000
-    Tab1.TextWrapped = true
-    
-    TextLabel.Parent = Tab1
-    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel.BackgroundTransparency = 1.000
-    TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
-    TextLabel.Size = UDim2.new(0, 123, 0, 50)
-    TextLabel.Font = Enum.Font.GothamBold
-    TextLabel.Text = "Main"
-    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel.TextScaled = true
-    TextLabel.TextSize = 14.000
-    TextLabel.TextWrapped = true
-    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-    
-    ImageLabel.Parent = Tab1
-    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ImageLabel.BackgroundTransparency = 1.000
-    ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
-    ImageLabel.Size = UDim2.new(0, 55, 0, 52)
-    
-    UIListLayout.Parent = TabContainer
-    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    
-    HubName.Name = "HubName"
-    HubName.Parent = MainLib
-    HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    HubName.BackgroundTransparency = 1.000
-    HubName.Position = UDim2.new(0.00795756001, 0, -0.000217938446, 0)
-    HubName.Size = UDim2.new(0, 193, 0, 50)
-    HubName.Font = Enum.Font.SourceSansBold
-    HubName.Text = hubname
-    HubName.TextColor3 = Color3.fromRGB(175, 175, 175)
-    HubName.TextScaled = true
-    HubName.TextSize = 14.000
-    HubName.TextWrapped = true
-    
-    GameName.Name = "GameName"
-    GameName.Parent = MainLib
-    GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    GameName.BackgroundTransparency = 1.000
-    GameName.Position = UDim2.new(0, 0, 0.079264462, 0)
-    GameName.Size = UDim2.new(0, 205, 0, 29)
-    GameName.Font = Enum.Font.SourceSansBold
-    GameName.Text = gamename
-    GameName.TextColor3 = Color3.fromRGB(135, 135, 135)
-    GameName.TextScaled = true
-    GameName.TextSize = 14.000
-    GameName.TextWrapped = true
-    
-    Seperator.Name = "Seperator"
-    Seperator.Parent = MainLib
-    Seperator.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
-    Seperator.BorderSizePixel = 0
-    Seperator.Position = UDim2.new(0.271883279, 0, 0, 0)
-    Seperator.Size = UDim2.new(0, 7, 0, 541)
-    
-    TabContentContainer.Name = "TabContentContainer"
-    TabContentContainer.Parent = MainLib
-    TabContentContainer.Active = true
-    TabContentContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TabContentContainer.BackgroundTransparency = 1.000
-    TabContentContainer.BorderColor3 = Color3.fromRGB(27, 42, 53)
-    TabContentContainer.BorderSizePixel = 0
-    TabContentContainer.Position = UDim2.new(0.290450931, 0, 0.0110905729, 0)
-    TabContentContainer.Size = UDim2.new(0, 535, 0, 535)
-    TabContentContainer.BottomImage = ""
-    TabContentContainer.TopImage = ""
-    
-    UIListLayout_2.Parent = TabContentContainer
-    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout_2.Padding = UDim.new(0, 5)
- 
-	local Win = {}
- 
-	function Win:Page(pagename, mainpage)
- 
-        Tab1.Name = "Tab1"
-        Tab1.Parent = TabContainer
-        Tab1.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-        Tab1.BorderSizePixel = 0
-        Tab1.Position = UDim2.new(0.0341463424, 0, 0.368869931, 0)
-        Tab1.Size = UDim2.new(0, 205, 0, 50)
-        Tab1.AutoButtonColor = false
-        Tab1.Font = Enum.Font.GothamBold
-        Tab1.Text = ""
-        Tab1.TextColor3 = Color3.fromRGB(206, 206, 206)
-        Tab1.TextSize = 25.000
-        Tab1.TextWrapped = true
+function Library.Create(hubname, gamename)
+	local UiGui = Instance.new("ScreenGui")
+	local UiGui_2 = Instance.new("Frame")
+	local TabContainer = Instance.new("Frame")
+	local List = Instance.new("UIListLayout")
+	local tab1 = Instance.new("ImageButton")
+	local infotab = Instance.new("ImageButton")
+	local settingstab = Instance.new("ImageButton")
+	local helptab = Instance.new("ImageButton")
+	local Seperator = Instance.new("Frame")
+	local ContentDesignFrame = Instance.new("Frame")
+	local CurrentTabContent = Instance.new("ScrollingFrame")
+	local List2 = Instance.new("UIListLayout")
 
-        TextLabel.Parent = Tab1
-        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        TextLabel.BackgroundTransparency = 1.000
-        TextLabel.Position = UDim2.new(0.102439024, 0, -0.0199999996, 0)
-        TextLabel.Size = UDim2.new(0, 123, 0, 50)
-        TextLabel.Font = Enum.Font.GothamBold
-        TextLabel.Text = pagename
-        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        TextLabel.TextScaled = true
-        TextLabel.TextSize = 14.000
-        TextLabel.TextWrapped = true
-        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	UiGui.Name = "UiGui"
+	UiGui.Parent = game.CoreGui
 
-        ImageLabel.Parent = Tab1
-        ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        ImageLabel.BackgroundTransparency = 1.000
-        ImageLabel.Position = UDim2.new(0.731707335, 0, 0, 0)
-        ImageLabel.Size = UDim2.new(0, 55, 0, 52)
- 
-	local PageItems = {} 
- 
-	function PageItems:Button(buttonname, callback)
- 
-	    local callback = callback or function() end
-			
-            local Button = Instance.new("TextButton")
- 	    local UICorner = Instance.new("UICorner")
+	UiGui_2.Name = "UiGui"
+	UiGui_2.Parent = UiGui
+	UiGui_2.BackgroundColor3 = Color3.new(1, 1, 1)
+	UiGui_2.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+	UiGui_2.BorderSizePixel = 0
+	UiGui_2.Position = UDim2.new(0.0650936514, 0, 0.237967908, 0)
+	UiGui_2.Size = UDim2.new(0, 818, 0, 560)
+	
+	local Corner = Instance.new("UICorner")
+	Corner.Parent = UiGui_2
+	Corner.CornerRadius = UDim.new(0, 4)
+
+	TabContainer.Name = "TabContainer"
+	TabContainer.Parent = UiGui_2
+	TabContainer.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
+	TabContainer.BorderSizePixel = 0
+	TabContainer.Position = UDim2.new(-0.0501222499, 0, 0, 0)
+	TabContainer.Size = UDim2.new(0, 50, 0, 560)
+
+	List.Name = "List"
+	List.Parent = TabContainer
+	List.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	List.SortOrder = Enum.SortOrder.LayoutOrder
+	List.VerticalAlignment = Enum.VerticalAlignment.Center
+	List.Padding = UDim.new(0, 50)
+
+	tab1.Name = "tab1"
+	tab1.Parent = TabContainer
+	tab1.BackgroundTransparency = 1
+	tab1.Position = UDim2.new(0.5, 0, 0.5, 0)
+	tab1.Size = UDim2.new(0, 25, 0, 25)
+	tab1.ZIndex = 2
+	tab1.Image = "rbxassetid://3926305904"
+	tab1.ImageRectOffset = Vector2.new(964, 204)
+	tab1.ImageRectSize = Vector2.new(36, 36)
+
+	infotab.Name = "infotab"
+	infotab.Parent = TabContainer
+	infotab.BackgroundTransparency = 1
+	infotab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	infotab.Size = UDim2.new(0, 25, 0, 25)
+	infotab.ZIndex = 2
+	infotab.Image = "rbxassetid://3926305904"
+	infotab.ImageRectOffset = Vector2.new(524, 444)
+	infotab.ImageRectSize = Vector2.new(36, 36)
+
+	settingstab.Name = "settingstab"
+	settingstab.Parent = TabContainer
+	settingstab.BackgroundTransparency = 1
+	settingstab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	settingstab.Size = UDim2.new(0, 25, 0, 25)
+	settingstab.ZIndex = 2
+	settingstab.Image = "rbxassetid://3926307971"
+	settingstab.ImageRectOffset = Vector2.new(324, 124)
+	settingstab.ImageRectSize = Vector2.new(36, 36)
+
+	helptab.Name = "helptab"
+	helptab.Parent = TabContainer
+	helptab.BackgroundTransparency = 1
+	helptab.LayoutOrder = 3
+	helptab.Position = UDim2.new(0.5, 0, 0.5, 0)
+	helptab.Size = UDim2.new(0, 25, 0, 25)
+	helptab.ZIndex = 2
+	helptab.Image = "rbxassetid://3926305904"
+	helptab.ImageRectOffset = Vector2.new(924, 164)
+	helptab.ImageRectSize = Vector2.new(36, 36)
+
+	Seperator.Name = "Seperator"
+	Seperator.Parent = UiGui_2
+	Seperator.BackgroundColor3 = Color3.new(0.815686, 0.47451, 0.32549)
+	Seperator.BorderSizePixel = 0
+	Seperator.Position = UDim2.new(0.0110024447, 0, 0, 0)
+	Seperator.Size = UDim2.new(0, 9, 0, 560)
+
+	ContentDesignFrame.Name = "ContentDesignFrame"
+	ContentDesignFrame.Parent = UiGui_2
+	ContentDesignFrame.BackgroundColor3 = Color3.new(1, 0.580392, 0.4)
+	ContentDesignFrame.Position = UDim2.new(0.0293398518, 0, 0.0125000011, 0)
+	ContentDesignFrame.Size = UDim2.new(0, 785, 0, 545)
+	
 		
-            Button.Name = "Button"
-            Button.Parent = TabContentContainer
-            Button.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
-            Button.Size = UDim2.new(0, 517, 0, 55)
-            Button.AutoButtonColor = false
-            Button.Font = Enum.Font.GothamBold
-            Button.TextColor3 = Color3.fromRGB(193, 193, 193)
-            Button.TextSize = 37.000
-            Button.TextWrapped = true
+	local Corner = Instance.new("UICorner")
+	Corner.Parent = ContentDesignFrame
+	Corner.CornerRadius = UDim.new(0, 8)
 
-            UICorner.CornerRadius = UDim.new(0, 5)
-            UICorner.Parent = Button
- 
-            Button.MouseButton1Down:Connect(function()
-                callback()
-            end)
- 
+	CurrentTabContent.Name = "CurrentTabContent"
+	CurrentTabContent.Parent = ContentDesignFrame
+	CurrentTabContent.Active = true
+	CurrentTabContent.BackgroundColor3 = Color3.new(1, 1, 1)
+	CurrentTabContent.BackgroundTransparency = 1
+	CurrentTabContent.BorderSizePixel = 0
+	CurrentTabContent.Position = UDim2.new(-0.00764331222, 0, 0, 0)
+	CurrentTabContent.Size = UDim2.new(0, 791, 0, 545)
+	CurrentTabContent.BottomImage = ""
+	CurrentTabContent.MidImage = ""
+	CurrentTabContent.TopImage = ""
+
+	List2.Name = "List2"
+	List2.Parent = CurrentTabContent
+	List2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	List2.SortOrder = Enum.SortOrder.LayoutOrder
+	List2.Padding = UDim.new(0, 10)
+	
+	local PageItems = {} 
+	
+	function PageItems:Button(name, callback)
+		local Button = Instance.new("TextButton")
+		
+		local callback = callback or function() end
+		
+		Button.Name = "Button"
+		Button.Parent = CurrentTabContent
+		Button.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
+		Button.Size = UDim2.new(0, 764, 0, 50)
+		Button.AutoButtonColor = false
+		Button.Font = Enum.Font.GothamBold
+		Button.TextColor3 = Color3.new(1, 1, 1)
+		Button.TextSize = 29
+		
+			
+		local Corner = Instance.new("UICorner")
+		Corner.Parent = Button
+		
+		Button.MouseButton1Down:Connect(function()
+		     callback()
+		end)
 	end
 	
-	function PageItems:InfoLabel(info)
-		local Label = Instance.new("TextLabel")
-		Label.Name = "Label"
-		Label.Parent = TabContentContainer
-		Label.BackgroundColor3 = Color3.new(0.34902, 0.34902, 0.34902)
-		Label.Position = UDim2.new(0, 0, 0.224299058, 0)
-		Label.Size = UDim2.new(0, 517, 0, 50)
-		Label.Font = Enum.Font.GothamBold 
-		Label.Text = info or "info"
-		Label.TextColor3 = Color3.new(0.756863, 0.756863, 0.756863)
-		Label.TextSize = 37
-		Label.TextWrapped = true
- 	end
-	
-	function PageItems:TextField(text, callback)
+	function PageItems:TextField(placeholdertext, callback)
 		local TextField = Instance.new("TextBox")
+		
 		local callback = callback or function() end
 		
 		TextField.Name = "TextField"
-		TextField.Parent = TabContentContainer
-		TextField.BackgroundColor3 = Color3.new(0.34902, 0.34902, 0.34902)
-		TextField.Position = UDim2.new(0, 0, 0.32710281, 0)
-		TextField.Size = UDim2.new(0, 517, 0, 50)
-		TextField.Font = Enum.Font.SourceSansBold
-		TextField.PlaceholderText = text
+		TextField.Parent = CurrentTabContent
+		TextField.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
+		TextField.Position = UDim2.new(0, 0, 0.220183492, 0)
+		TextField.Size = UDim2.new(0, 764, 0, 50)
+		TextField.Font = Enum.Font.GothamBold
+		TextField.PlaceholderColor3 = Color3.new(1, 1, 1)
+		TextField.PlaceholderText = placeholdertext
 		TextField.Text = ""
 		TextField.TextColor3 = Color3.new(0, 0, 0)
-		TextField.TextScaled = true
-		TextField.TextSize = 14
-		TextField.TextWrapped = true
+		TextField.TextSize = 29
 		
-		TextField.Changed:Connect(function()
+		TextField.FocusLost:Connect(function(enterPressed)
+		    if enterPressed then
 			callback(TextField.Text)
+		    end
 		end)
 	end
 	
-	
-	function Tween(asset, info, thing)
-	    print("tween lmao") 
-	    game:GetService("TweenService"):Create(asset, info, thing):Play()
-	end
-	
-	function PageItems:DropDown(name, options, callback)
-		local DropDown = Instance.new("TextButton")
-		local UICorner = Instance.new("UICorner")
-		local TextLabel = Instance.new("TextLabel")
-		local OptionsContainer = Instance.new("Frame")
-		local UICorner_2 = Instance.new("UICorner")
-		local UIListLayout = Instance.new("UIListLayout")
-
-		--Properties:
-
+	function PageItems:DropDown(options, callback)
+		local options = options or {}
+		
+		local callback = callback or function() end
+		
+		
+		local Activated = false
+		
 		DropDown.Name = "DropDown"
-		DropDown.Parent = TabContentContainer
-		DropDown.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
-		DropDown.Position = UDim2.new(0, 0, -0.0341959335, 0)
-		DropDown.Size = UDim2.new(0, 517, 0, 55)
+		DropDown.Parent = CurrentTabContent
+		DropDown.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
+		DropDown.Position = UDim2.new(0.0366624519, 0, 0.0027522936, 0)
+		DropDown.Size = UDim2.new(0, 764, 0, 50)
+		DropDown.ZIndex = 2
 		DropDown.AutoButtonColor = false
-		DropDown.Font = Enum.Font.GothamBold
-		DropDown.Text = name
-		DropDown.TextColor3 = Color3.fromRGB(193, 193, 193)
-		DropDown.TextSize = 37.000
-		DropDown.TextWrapped = true
+		DropDown.Font = Enum.Font.SourceSans
+		DropDown.Text = ""
+		DropDown.TextColor3 = Color3.new(0, 0, 0)
+		DropDown.TextSize = 14
+		
+		local Corner = Instance.new("UICorner")
+		Corner.Parent = DropDown
 
-		UICorner.CornerRadius = UDim.new(0, 5)
-		UICorner.Parent = DropDown
-
-		TextLabel.Parent = DropDown
-		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TextLabel.BackgroundTransparency = 1.000
-		TextLabel.Position = UDim2.new(0.899419725, 0, 0.0363636352, 0)
-		TextLabel.Size = UDim2.new(0, 44, 0, 50)
-		TextLabel.Font = Enum.Font.ArialBold
-		TextLabel.Text = ">"
-		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TextLabel.TextScaled = true
-		TextLabel.TextSize = 14.000
-		TextLabel.TextWrapped = true
+		keyboard_arrow_down.Name = "keyboard_arrow_down"
+		keyboard_arrow_down.Parent = DropDown
+		keyboard_arrow_down.BackgroundTransparency = 1
+		keyboard_arrow_down.LayoutOrder = 12
+		keyboard_arrow_down.Position = UDim2.new(0.455497444, 0, -0.100000001, 0)
+		keyboard_arrow_down.Rotation = -90
+		keyboard_arrow_down.Size = UDim2.new(0, 59, 0, 59)
+		keyboard_arrow_down.ZIndex = 2
+		keyboard_arrow_down.Image = "rbxassetid://3926305904"
+		keyboard_arrow_down.ImageColor3 = Color3.new(0.929412, 0.929412, 0.929412)
+		keyboard_arrow_down.ImageRectOffset = Vector2.new(404, 284)
+		keyboard_arrow_down.ImageRectSize = Vector2.new(36, 36)
 
 		OptionsContainer.Name = "OptionsContainer"
 		OptionsContainer.Parent = DropDown
-		OptionsContainer.BackgroundColor3 = Color3.fromRGB(89, 89, 89)
+		OptionsContainer.BackgroundColor3 = Color3.new(0.929412, 0.4, 0.427451)
 		OptionsContainer.BorderSizePixel = 0
-		OptionsContainer.Position = UDim2.new(0, 0, 0.945454538, 0)
-		OptionsContainer.Size = UDim2.new(0, 517, 0, 0)
-		OptionsContainer.ZIndex = 0
-
-		UIListLayout.Parent = OptionsContainer
-		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		OptionsContainer.Position = UDim2.new(0, 0, 0.879999995, 0)
+		OptionsContainer.Size = UDim2.new(0, 764, 0, 0)
+		OptionsContainer.ZIndex = 2
 		
-		for i,v in pairs(options) do
-			local Options = Instance.new("TextButton")
-			local UICorner = Instance.new("UICorner")
+		local List2 = Instance.new("UIListLayout")
+		
+		List2.Name = "List2"
+		List2.Parent = OptionsContainer
+		List2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		List2.SortOrder = Enum.SortOrder.LayoutOrder
+		List2.Padding = UDim.new(0, 10)
 
-			--Properties:
+		OptionLabel.Name = "OptionLabel"
+		OptionLabel.Parent = DropDown
+		OptionLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+		OptionLabel.BackgroundTransparency = 1
+		OptionLabel.Size = UDim2.new(0, 348, 0, 50)
+		OptionLabel.ZIndex = 2
+		OptionLabel.Font = Enum.Font.GothamBold
+		OptionLabel.Text = "Option Name here"
+		OptionLabel.TextColor3 = Color3.new(1, 1, 1)
+		OptionLabel.TextSize = 29
+		OptionLabel.TextWrapped = true
+		
+		for i,v in pairs(options) do 
+			local Button = Instance.new("TextButton")
+			local TextLabel = Instance.new("TextLabel")
 
-			Options.Name = v
-			Options.Parent = OptionsContainer
-			Options.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Options.BackgroundTransparency = 1.000
-			Options.Position = UDim2.new(0, 0, 0.644067824, 0)
-			Options.Size = UDim2.new(0, 517, 0, 50)
-			Options.Font = Enum.Font.SourceSansBold
-			Options.Text = v
-			Options.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Options.TextScaled = true
-			Options.TextSize = 14.000
-			Options.TextWrapped = true
-			Options.AutoButtonColor = false
-			Options.Visible = true
-			Options.TextTransparency = 1
-				
-			UICorner.Parent = Options
+			Button.Name = "Button"
+			Button.Parent = game.StarterGui.UiGui.UiGui.ContentDesignFrame.CurrentTabContent.DropDown.OptionsContainer
+			Button.BackgroundColor3 = Color3.new(0.72549, 0.419608, 0.290196)
+			Button.BackgroundTransparency = 1
+			Button.BorderSizePixel = 0
+			Button.Size = UDim2.new(0, 764, 0, 45)
+			Button.ZIndex = 2
+			Button.Font = Enum.Font.GothamSemibold
+			Button.Text = v
+			Button.TextColor3 = Color3.new(1, 1, 1)
+			Button.TextScaled = true
+			Button.TextSize = 14
+			Button.TextWrapped = true
+
+			TextLabel.Parent = Button
+			TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+			TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+			TextLabel.BackgroundTransparency = 1
+			TextLabel.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+			TextLabel.BorderSizePixel = 0
+			TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+			TextLabel.Size = UDim2.new(1, -20, 1, -20)
+			TextLabel.ZIndex = 2
+			TextLabel.Font = Enum.Font.GothamSemibold
+			TextLabel.Text = "TextButton"
+			TextLabel.TextColor3 = Color3.new(0, 0, 0)
+			TextLabel.TextScaled = true
+			TextLabel.TextSize = 14
+			TextLabel.TextWrapped = true
 			
-			Options.MouseButton1Down:Connect(function()
-			   callback(Options.Text)
-			   DropDown.Text = Options.Text
-			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 0)})
-			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
-			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
-			    end
+			Button.MouseButton1Down:Connect(function()
+			      callback(v)
+			        Activated = false
+			        Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 764, 0, 600})
+				Tween(keyboard_arrow_down, TweenInfo.new(0.2), {Rotation = 0})
+				for i,v in pairs(OptionsContainer:GetChildren()) do 
+					Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
+				end
 			end)
 		end
 		
-		local isDropped = false
-		
 		DropDown.MouseButton1Down:Connect(function()
-		   if isDropped == false then
-		   	isDropped = true
-			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 0})
-			    end
-			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 517, 0, 600)})
-			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 90})
-		   elseif isDropped == true then
-		   	isDropped = false
-			    for i,v in pairs(options) do 
-				Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
-			    end
-			    Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0,517, 0, 0)})
-			    Tween(TextLabel, TweenInfo.new(0.5), {Rotation = 0})
-		     end
+			if Activated == true then
+				Activated = false
+				Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 764, 0, 600})
+				Tween(keyboard_arrow_down, TweenInfo.new(0.2), {Rotation = 0})
+				for i,v in pairs(OptionsContainer:GetChildren()) do 
+					Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 1})
+				end
+			elseif Activated == false then
+				Activated = true
+				Tween(keyboard_arrow_down, TweenInfo.new(0.2), {Rotation = -90})
+				Tween(OptionsContainer, TweenInfo.new(0.5), {Size = UDim2.new(0, 764, 0, 0})
+				for i,v in pairs(OptionsContainer:GetChildren()) do 
+					Tween(OptionsContainer[v], TweenInfo.new(0.2), {TextTransparency = 0})
+				end
+			end
 		end)
 	end
 	
-	    return PageItems
- 
+	function PageItems:Toggle(name, callback)
+	
 	end
- 
-	return Win
- 
+	
+	return PageItems
 end
  
 return Library
