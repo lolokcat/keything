@@ -101,7 +101,7 @@ function WindowTable:CreateWindow(gamename)
 	
 	for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
                 v.Visible = false   -- then we make them invisible 
-        end
+        end 
 	
 	tabButton.MouseButton1Click:Connect(function()
             for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
@@ -124,6 +124,7 @@ function WindowTable:CreateWindow(gamename)
 	newPage.BorderSizePixel = 0
 	newPage.Size = UDim2.new(1, 0, 1, 0)
 	newPage.ScrollBarThickness = 5
+	newPage.Visible = false
 
 	elementsListing.Name = "elementsListing"
 	elementsListing.Parent = newPage
