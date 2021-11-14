@@ -31,7 +31,7 @@ function WindowTable:CreateWindow()
        frame.Active = true
        frame.Selectable = true
     end
-  
+ 
     mainCorner.CornerRadius = UDim.new(0, 3)
     mainCorner.Name = "mainCorner"
     mainCorner.Parent = MainFrame
@@ -177,4 +177,5 @@ function WindowTable:CreateWindow()
     return TabHandler
 end
 return WindowTable
+ 
  
