@@ -11,6 +11,7 @@ function WindowTable:CreateWindow()
 	local mainCorner = Instance.new("UICorner")
 	local sideCorner = Instance.new("UICorner")
 	local mainCorner2 = Instance.new("UICorner")
+	local pagesFolder = Instance.new("Folder")
 
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
@@ -31,6 +32,9 @@ function WindowTable:CreateWindow()
 	allPages.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
 	allPages.Position = UDim2.new(0.274418592, 0, 0.0269230772, 0)
 	allPages.Size = UDim2.new(0, 306, 0, 245)
+	
+	pagesFolder.Parent = allPages
+	pagesFolder.Name = "pagesFolder"
 
 	mainCorner2.Parent = allPages
 	mainCorner2.CornerRadius = UDim.new(0, 3)
@@ -67,31 +71,32 @@ function WindowTable:CreateWindow()
     
     function TabHandler:CreateTab(tabname)
         tabname = tabname or "New Tab"
-	
 	local tabButton = Instance.new("TextButton")
         local tabCorner = Instance.new("UICorner")
         local newPage = Instance.new("ScrollingFrame") 
         local elementsListing = Instance.new("UIListLayout") 
 	
-	local UIPadding = Instance.new("UIPadding")
-
-	UIPadding.Parent = game.StarterGui.UiFrame.MainFrame.allPages.newPage
-	UIPadding.PaddingTop = UDim.new(0, 4)
+        local elementsPadding = Instance.new("UIPadding")
+ 
+        elementsPadding.Name = "elementsPadding"
+        elementsPadding.Parent = newPage
+        elementsPadding.PaddingRight = UDim.new(0, 5)
+        elementsPadding.PaddingTop = UDim.new(0, 5)
 	
 	tabButton.Name = "tabButton"
 	tabButton.Parent = allTabs
 	tabButton.BackgroundColor3 = Color3.new(0.380392, 0.623529, 0.780392)
 	tabButton.Size = UDim2.new(0, 99, 0, 25)
 	tabButton.Font = Enum.Font.Gotham
-	tabButton.Text = tabname
+	tabButton.Text = "Example"
 	tabButton.TextColor3 = Color3.new(1, 1, 1)
 	tabButton.TextSize = 14
 	
 	tabButton.MouseButton1Click:Connect(function()
-            for i,v in next, pagesFolder:GetChildren() do
-                v.Visible = false
+            for i,v in next, pagesFolder:GetChildren() do -- We get all the pages that we added
+                v.Visible = false   -- then we make them invisible 
             end 
-            newPage.Visible = true
+            newPage.Visible = true  -- We make current page visible but not others
 	end)
 
 	local tabCorner = Instance.new("UICorner")
@@ -100,7 +105,7 @@ function WindowTable:CreateWindow()
 	tabCorner.CornerRadius = UDim.new(0, 3)
 	
 	newPage.Name = "newPage"
-	newPage.Parent = allPages
+	newPage.Parent = pagesFolder
 	newPage.Active = true
 	newPage.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
 	newPage.BackgroundTransparency = 1
@@ -115,13 +120,6 @@ function WindowTable:CreateWindow()
 	elementsListing.SortOrder = Enum.SortOrder.LayoutOrder
 	elementsListing.Padding = UDim.new(0, 5)
 	
-	local elementsPadding = Instance.new("UIPadding")
- 
-        elementsPadding.Name = "elementsPadding"
-        elementsPadding.Parent = newPage
-        elementsPadding.PaddingRight = UDim.new(0, 5)
-        elementsPadding.PaddingTop = UDim.new(0, 5)
-        
         local ElementHandler = {}
         
         function ElementHandler:CreateButton(btnText, callback)
