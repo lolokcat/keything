@@ -12,7 +12,6 @@ function WindowTable:CreateWindow(gamename)
 	local sideCorner = Instance.new("UICorner")
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
-	local gamename = Instance.new("TextLabel")
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
 	MainFrame.Name = "MainFrame"
@@ -56,17 +55,7 @@ function WindowTable:CreateWindow(gamename)
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-	gamename.Name = "gamename"
-	gamename.Parent = SideBar
-	gamename.BackgroundColor3 = Color3.new(1, 1, 1)
-	gamename.BackgroundTransparency = 1
-	gamename.Position = UDim2.new(0, 0, 0.873076916, 0)
-	gamename.Size = UDim2.new(0, 109, 0, 13)
-	gamename.Font = Enum.Font.GothamBold
-	gamename.Text = "'MOGUS HUB"
-	gamename.TextColor3 = Color3.new(1, 1, 1)
-	gamename.TextSize = 15
-	gamename.TextWrapped = true
+	
     local TabHandler = {}
     
     function TabHandler:CreateTab(tabname)
