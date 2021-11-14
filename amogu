@@ -139,14 +139,14 @@ function WindowTable:CreateWindow()
 		tabButton.TextColor3 = Color3.new(1, 1, 1)
 		tabButton.TextSize = 14
 		
+		tabButton.MouseButton1Click:Connect(function()
+			callback()
+		end)
+		
 		local tabCorner = Instance.new("UICorner")
 
 		tabCorner.Parent = tabButton
 		tabCorner.CornerRadius = UDim.new(0, 3)
-		
-		tabButton.MouseButton1Click:Connect(function()
-			callback()
-		end)
         end
         
         return ElementHandler
