@@ -13,7 +13,6 @@ function WindowTable:CreateWindow(gamename)
 	local mainCorner2 = Instance.new("UICorner")
 	local pagesFolder = Instance.new("Folder")
 	local gamename = Instance.new("TextLabel")
-	local mogushub = Instance.new("TextLabel")
 	UiFrame.Name = "UiFrame"
 	UiFrame.Parent = game.CoreGui
 	MainFrame.Name = "MainFrame"
@@ -30,7 +29,6 @@ function WindowTable:CreateWindow(gamename)
 	allPages.BackgroundColor3 = Color3.new(0.490196, 0.796078, 1)
 	allPages.Position = UDim2.new(0.274418592, 0, 0.0269230772, 0)
 	allPages.Size = UDim2.new(0, 306, 0, 245)
-	
 	pagesFolder.Parent = allPages
 	pagesFolder.Name = "pagesFolder"
 	mainCorner2.Parent = allPages
@@ -58,7 +56,6 @@ function WindowTable:CreateWindow(gamename)
 	tabListing.Parent = allTabs
 	tabListing.SortOrder = Enum.SortOrder.LayoutOrder
 	tabListing.Padding = UDim.new(0, 2)
-	
 	gamename.Name = "gamename"
 	gamename.Parent = SideBar
 	gamename.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -70,19 +67,6 @@ function WindowTable:CreateWindow(gamename)
 	gamename.TextColor3 = Color3.new(1, 1, 1)
 	gamename.TextSize = 15
 	gamename.TextWrapped = true
-
-	mogushub.Name = "mogushub"
-	mogushub.Parent = SideBar
-	mogushub.BackgroundColor3 = Color3.new(1, 1, 1)
-	mogushub.BackgroundTransparency = 1
-	mogushub.Position = UDim2.new(0, 0, 0.923076928, 0)
-	mogushub.Size = UDim2.new(0, 109, 0, 20)
-	mogushub.Font = Enum.Font.GothamBold
-	mogushub.Text = gamename
-	mogushub.TextColor3 = Color3.new(1, 1, 1)
-	mogushub.TextSize = 15
-	mogushub.TextTransparency = 0.30000001192093
-	mogushub.TextWrapped = true
     local TabHandler = {}
     
     function TabHandler:CreateTab(tabname)
