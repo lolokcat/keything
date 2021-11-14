@@ -1,1 +1,7 @@
-print("amogu")
+local Library = {}
+
+function Library:Create()
+      print("ok")
+end
+
+return Library
