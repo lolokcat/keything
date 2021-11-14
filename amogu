@@ -4,7 +4,7 @@ local TS = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local mouse = game.Players.LocalPlayer:GetMouse()
  
-function Library.Create(hubname, gamename)
+function Library.Create(hubname)
 	local UiGui = Instance.new("ScreenGui")
 	local UiGui_2 = Instance.new("Frame")
 	local TabContainer = Instance.new("Frame")
@@ -124,6 +124,30 @@ function Library.Create(hubname, gamename)
 	List2.SortOrder = Enum.SortOrder.LayoutOrder
 	List2.Padding = UDim.new(0, 10)
 	
+	CloseGui.Name = "CloseGui"
+	CloseGui.Parent = UiGui_2
+	CloseGui.BackgroundTransparency = 1
+	CloseGui.Position = UDim2.new(-0.0355382487, 0, 0.0254679024, 0)
+	CloseGui.Size = UDim2.new(0, 25, 0, 25)
+	CloseGui.ZIndex = 2
+	CloseGui.Image = "rbxassetid://6764432408"
+	CloseGui.ImageRectOffset = Vector2.new(100, 950)
+	CloseGui.ImageRectSize = Vector2.new(50, 50)
+
+	TextLabel.Parent = UiGui_2
+	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.Position = UDim2.new(0.881418109, 0, 0.544642866, 0)
+	TextLabel.Rotation = 90
+	TextLabel.Size = UDim2.new(0, 153, 0, 22)
+	TextLabel.Font = Enum.Font.GothamBold
+	TextLabel.Text = hubname
+	TextLabel.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14
+	TextLabel.TextStrokeColor3 = Color3.new(1, 1, 1)
+	TextLabel.TextWrapped = true
+	
 	local PageItems = {} 
 	
 	function PageItems:Button(name, callback)
@@ -137,6 +161,7 @@ function Library.Create(hubname, gamename)
 		Button.Size = UDim2.new(0, 764, 0, 50)
 		Button.AutoButtonColor = false
 		Button.Font = Enum.Font.GothamBold
+		Button.Text = name
 		Button.TextColor3 = Color3.new(1, 1, 1)
 		Button.TextSize = 29
 		
