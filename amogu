@@ -150,12 +150,6 @@ function Library:Create(hubname)
 	TextLabel.TextStrokeColor3 = Color3.new(1, 1, 1)
 	TextLabel.TextWrapped = true
 	
-	local Win = {}
-	
-	function Win:Page()
-	
-	print("window lol")
-	
 	local PageItems = {} 
 	
 	function PageItems:Button(name, callback)
@@ -337,15 +331,7 @@ function Library:Create(hubname)
 		end)
 	end
 	
-	function PageItems:Toggle(name, callback)
-	
-	end
-	
 	return PageItems
-	
-	end
-	
-	return Win
 end
  
 return Library
